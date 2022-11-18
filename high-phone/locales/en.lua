@@ -19,11 +19,15 @@ Config.Languages["en"] = {
         -- Twitter/mail
         ["accountdoesntexist"] = "Email address isn't registered!",
         ["emailtaken"] = "Email is already taken!",
+        ["emailtooshort"] = "Email is too short!",
         ["usernametaken"] = "Username is already taken!",
         ["userdoesntexist"] = "User doesn't exist!",
         ["wrongpassword"] = "Wrong password!",
         ["wrongresetcode"] = "Wrong code!",
+        ["accountbanned"] = "Account is banned from Twitter!",
         -- Dark chat
+        ["invitealreadyexists"] = "Invite code is already used!",
+        ["invitetooshort"] = "Invite code is too short!",
         ["invitedoesntexist"] = "Invite code doesn't exist!",
         ["alreadyingroup"] = "You're already in this group!",
         ["bannedfromgroup"] = "You're banned from this group!",
@@ -33,34 +37,101 @@ Config.Languages["en"] = {
         ["member_banned"] = "<strong>{memberName}</strong> has been banned from the group",
         ["member_kicked"] = "<strong>{memberName}</strong> has been kicked from the group",
     },
-    -- Other
+    -- Main
     ["open_phone"] = "Open phone",
     ["deleted_user"] = "Deleted User",
     ["unknown"] = "Unknown",
     ["unknown_caller"] = "Unknown Caller",
+    -- Ads
+    ["ads_notitle"] = "(No title)",
+    -- Twitter
+    ["twitter_replyingto"] = "Replying to @{tweeterName}",
+    ["twitter_notitle"] = "(No title)",
+    -- Webhooks, the whole table is sent through the webhook, which means you can add/remove anything you want into the webhooks (basically open sourced embeds).
     ["newtweetwebhook"] = {
-        ["title"] = "📢 New Tweet from {senderTwitterName} ({senderName} [**{senderId}**])!",
-        ["replying"] = "Replying to @{tweeterName}",
-        ["footer"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version")
+        ["title"] = "📢 New tweet!",
+        ["fields"] = {
+            {["name"] = "Sender data", ["value"] = "Identifier: `{senderIdentifier}`\nEmail: `{senderEmail}`\nTwitter name: `{senderTwitterName}`\nName: `{senderName}`\nID: `{senderId}`"}
+        },
+        ["description"] = "**{title}**\n{content}",
+        ["image"] = {
+            ["url"] = "{image}"
+        },
+        ["color"] = 47871,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
     },
     ["tweetreportwebhook"] = {
-        ["title"] = "📢 Tweet with ID {tweetId} posted by {tweeterName} was reported by {reporterTwitterName} ({reporterName} [**{reporterId}**])!",
-        ["footer"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version")
+        ["title"] = "🚩 Tweet reported!",
+        ["fields"] = {
+            {["name"] = "Tweet data", ["value"] = "ID: `{tweetId}`\nTitle:`{tweetTitle}`\nContent: `{tweetContent}`"},
+            {["name"] = "Tweeter data", ["value"] = "Email: `{tweeterEmail}`\nNickname: `{tweeterNickname}`"},
+            {["name"] = "Reporter data", ["value"] = "Identifier: `{reporterIdentifier}`\nEmail: `{reporterEmail}`\nNickname: `{reporterNickname}`\nID: `{reporterId}`"}
+        },
+        ["image"] = {
+            ["url"] = "{image}"
+        },
+        ["color"] = 47871,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
+    },
+    ["userreportwebhook"] = {
+        ["title"] = "🚩 Twitter user reported!",
+        ["fields"] = {
+            {["name"] = "User data", ["value"] = "Owner: `{userIdentifier}`\nEmail: `{userEmail}`\nNickname: `{userNickname}`"},
+            {["name"] = "Reporter data", ["value"] = "Identifier: `{reporterIdentifier}`\nEmail: `{reporterEmail}`\nNickname: `{reporterNickname}`\nID: `{reporterId}`"}
+        },
+        ["color"] = 47871,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
     },
     ["newmailwebhook"] = {
-        ["title"] = "📧 New Mail from **{senderMailAddress}** ({senderName} [**{senderId}**])!",
-        ["description"] = "To **{recipients}**\nSubject: **{subject}**\nContent: **{content}**",
-        ["footer"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version")
+        ["title"] = "📧 New mail!",
+        ["fields"] = {
+            {["name"] = "Mail data", ["value"] = "To: `{recipients}`\nSubject: `{subject}`\nContent: `{content}`"},
+            {["name"] = "Sender data", ["value"] = "Identifier: `{senderIdentifier}`\nEmail: `{senderMailAddress}`\nName: `{senderName}`\nID: `{senderId}`"}
+        },
+        ["color"] = 15105570,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
     },
     ["newadwebhook"] = {
-        ["title"] = "📢 New Advertisment from **{senderFullname}** ({senderName} **{senderId}**)!",
-        ["footer"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version")
+        ["title"] = "📢 New advertisment!",
+        ["fields"] = {
+            {["name"] = "Sender data", ["value"] = "Identifier: `{senderIdentifier}`\nCharacter name: `{senderFullname}`\nName: `{senderName}`\nID: `{senderId}`"}
+        },
+        ["description"] = "**{title}**\n{content}",
+        ["image"] = {
+            ["url"] = "{image}"
+        },
+        ["color"] = 15105570,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
     },
     ["newtransactionwebhook"] = {
-        ["title"] = "💸 **New transaction**",
-        ["description"] = "From player **{senderName}** [**{senderId}**] to **{receiverName}** [**{receiverId}**]\nTransaction reason: **{reason}**\nAmount: **{amount} €**",
-        ["footer"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version")
+        ["title"] = "💸 New transaction!",
+        ["fields"] = {
+            {["name"] = "Transaction data", ["value"] = "Amount: `{amount} €`\nReason: `{reason}`"},
+            {["name"] = "Sender data", ["value"] = "Identifier: `{senderIdentifier}`\nName: `{senderName}`\nID: `{senderId}`"},
+            {["name"] = "Receiver data", ["value"] = "Identifier: `{receiverIdentifier}`\nName: `{receiverName}`\nID: `{receiverId}`"}
+        },
+        ["color"] = 2067276,
+        ["footer"] = {
+            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
+            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+        }
     },
+    -- Other
     ["twitterresetmail"] = {
         ["senderAddress"] = "noreply@twitter.com",
         ["senderName"] = "Twitter",
