@@ -11,6 +11,9 @@ Config.CallingTime = 30 // How much time to dial until the call self cancels.
 Config.SaveUploadedPhotos = true // Save uploaded photos to the database or not? [Non-uploaded photos will not be saved either way!]
 Config.OffNotificationPosition = "bottom-right" // The position of big notifications when the phone is closed. Available: top-right, top-left, bottom-right, bottom-left
 Config.MinAudioSyncVolume = 0.15 // [MAX 1.0] Minimum volume to sync the sound with others [not worth syncing if the sounds are turned off, useless stress on the server's performance]
+Config.AutomaticScreenWake = true // Automatically wake the screen up when you open the phone? Or make the player press the power button?
+Config.VibrationVolume = 0.6; // Vibration sound effect volume.
+Config.EnableOutdatedWarning = true; // Set to false if you want to disable the outdated phone warning.
 
 // Dark chat app
 Config.DarkMemberLimit = 1000 // A limit for members able to join the group. [Can be set up in the group creation screen]
@@ -27,10 +30,14 @@ Config.AirdropImageCooldown = 2000 // in ms, 1 second = 1000 ms
 // Contacts app
 Config.ShareContactCooldown = 2000 // in ms, 1 second = 1000 ms
 
+// Music app
+Config.MaxPrimarySongs = 10 // How many songs should be loaded at the top of the Music app.
+Config.MaxShownRecentSongs = 4 // How many recently played songs can be shown?
+
 // Messages app
 Config.LocationCooldown = 2000 // in ms, 1 second = 1000 ms
 Config.AttachmentLimit = 2 // Attachments in messages limit
-Config.MaxGroupMembers = 10 // Max contacts that can be added into a group
+Config.MaxGroupMembers = 20 // Max contacts that can be added into a group
 
 // Phone app - dialing screen configuration
 Config.AutoSymbol = true // Automatically put a symbol to format the phone number or not?
@@ -39,20 +46,21 @@ Config.SymbolPosition = 3 // After which number should the dash be put in the di
 // Config.SymbolPosition = [3, 5, 6] // Example array symbol positions. [After which numbers should the dash be put in the dialing screen?] Remove the // if you want to use multiple numbers for symbols.
 
 // Twitter app
-Config.TwitterMinNicknameLength = 3; // Minimum character amount for the nickname.
-Config.TwitterMinPasswordLength = 3; // Minimum character amount for the password.
+Config.TwitterMinNicknameLength = 3; // Minimum characters for the nickname.
+Config.TwitterMinPasswordLength = 3; // Minimum characters for the password.
 
 // Mail app
 Config.RecipientMailAddressRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/; // Allowed to use characters and the format of an email address, change only if you know what you're doing.
 Config.MailAddressRegex = /^[a-zA-Z0-9._-]+$/g; // Allowed to use characters in an email address, change only if you know what you're doing.
-Config.MailMinNameLength = 3; // Minimum character amount for the name.
-Config.MailMinPasswordLength = 3; // Minimum character amount for the password.
+Config.MailMinNameLength = 3; // Minimum characters for the name.
+Config.MailMinPasswordLength = 3; // Minimum characters for the password.
 
 // Enable editing/deleting/reporting ads/tweets?
 Config.EditingAds = true;
 Config.DeletingAds = true;
 Config.DeletingTweets = true;
 Config.ReportingTweets = true;
+Config.ReportingUsers = true;
 
 // Enabled screens on bank app
 Config.BankScreens = { // Do not change index names, only the values.
@@ -67,40 +75,73 @@ Config.EnableHTMLMessages = false;
 Config.EnableHTMLTweets = false;
 Config.EnableHTMLAds = false;
 
+Config.DefaultBackground = 'media/bg.png'; // This is a fallback background, you should set a default background for every frame seperately in config.lua file.
+Config.DefaultLockbackground = 'media/bg.png'; // This is a fallback background, you should set a default background for every frame seperately in config.lua file.
+
 Config.DefaultImageSrc = 'media/default.png'; // Default unknown contact image/twitter default avatar.
 Config.Sounds = {
     Folder: "media/sounds/", // All sounds can either be an MP3, OGG, WAV, AAC or other Howler.JS supported audio format.
     // Just change to "" if you don't want any sounds for that particular part
-    NewTweet: "twitter.ogg", // File name with the format
-    NewMessage: "notification.ogg", // File name with the format
-    NewMail: "notification.ogg", // File name with the format
-    NewDarkMessage: "notification.ogg", // File name with the format
-    NewAd: "notification.ogg", // File name with the format
-    Photo: "picture.ogg", // File name with the format
-    Calling: "dialing.ogg" // File name with the format
-}
-Config.Ringtones = {
-    "default": { // Do not rename the default index
-        src: "media/sounds/ringtone.ogg", // File source/URL
-        name: "Default call", // Song title
-        author: "iPhone" // Song author,
+    NewTweet: "notifications/twitter.ogg", // File directory/name with the format
+    NewAd: "notifications/note.ogg", // File directory/name with the format
+    Photo: "picture.ogg", // File directory/name with the format
+    Calling: "dialing.ogg", // File directory/name with the format
+    UserBusy: "user_busy.ogg", // File directory/name with the format
+    VeryShortVibration: "vibration_veryshort.ogg", // File directory/name with the format
+    ShortVibration: "vibration_short.ogg", // File directory/name with the format
+    LongVibration: "vibration_long.ogg", // File directory/name with the format
+    // Ringtones
+    Ringtones: {
+        // Do not rename the default index
+        "default": "opening", // Index name of a ringtone
+        "opening": { // This is the index name
+            src: "media/sounds/ringtones/opening.ogg", // File source/URL
+            name: "Opening (Default)", // Song title
+            author: "iPhone" // Song author
+        },
+        "marimba": {
+            src: "media/sounds/ringtones/marimba.ogg", // File source/URL
+            name: "Marimba", // Song title
+            author: "iPhone" // Song author
+        },
     },
-    "marimba": {
-        src: "media/sounds/marimba.ogg", // File source/URL
-        name: "Marimba", // Song title
-        author: "iPhone" // Song author
+    // Notification sounds
+    Notifications: {
+        "default": { // Do not rename the default index
+            NewMessage: "tritone", // Index name of a notification sound
+            NewMail: "note", // Index name of a notification sound
+            NewDarkMessage: "tritone", // Index name of a notification sound
+            NewAirdrop: "pulse", // Index name of a notification sound
+            Reminder: "pulse", // Index name of a notification sound
+        },
+        "note": { // This is the index name
+            src: "media/sounds/notifications/note.ogg", // File source/URL
+            name: "Note (Default)", // Sound title
+            author: "iPhone" // Sound author
+        },
+        "pulse": {
+            src: "media/sounds/notifications/pulse.ogg", // File source/URL
+            name: "Pulse", // Sound title
+            author: "iPhone" // Sound author
+        },
+        "tritone": {
+            src: "media/sounds/notifications/tritone.ogg", // File source/URL
+            name: "Tri Tone", // Sound title
+            author: "iPhone" // Sound author
+        },
     }
 }
-Config.Backgrounds = [
-    {light: "media/bg.png", dark: "media/darkbg.png"},
-    {light: "https://i.imgur.com/4UGj1bn.jpg", dark: "https://i.imgur.com/D0hmRFn.jpg"},
-    {light: "https://i.imgur.com/6qrvClJ.jpg", dark: "https://i.imgur.com/efkOcHw.jpg"},
-    {light: "https://i.imgur.com/Zoi3eqH.jpg", dark: "https://i.imgur.com/alel8lS.jpg"},
-    {light: "https://i.imgur.com/gv4mK4f.jpg", dark: "https://i.imgur.com/jAvHMiY.jpg"}
-]
-Config.DefaultBackground = "media/bg.png" // Either link or directory of the background
-Config.DefaultLockbackground = "media/bg.png" // Either link or directory of the background
-Config.ImageUploadingType = "Imgur" // Set to "DiscordWebhooks" if you want to use discord's webhook image uploading.
+Config.Backgrounds = {
+    // All index names have to be unique! (The "blue", "purple", "green", etc. strings)
+    // 'light_preview' and 'dark_preview' are the preview versions of the photos, they should be downscaled and way smaller than the normal background images so that opening the backgrounds screen in settings app isn't as slow and laggy.
+    // On imgur, for 'light_preview' and 'dark_preview' you can just copy the normal version links and add a 't' character before the .jpg/.png/.gif/etc. to get the smaller version of the image. Thanks imgur for thinking of everything :)
+    "blue": {light: "media/bg.png", dark: "media/darkbg.png", light_preview: "media/pre_bg.png", dark_preview: "media/pre_darkbg.png"},
+    "purple": {light: "https://i.imgur.com/4UGj1bn.jpg", dark: "https://i.imgur.com/D0hmRFn.jpg", light_preview: "https://i.imgur.com/4UGj1bnt.jpg", dark_preview: "https://i.imgur.com/D0hmRFnt.jpg"},
+    "green": {light: "https://i.imgur.com/6qrvClJ.jpg", dark: "https://i.imgur.com/efkOcHw.jpg", light_preview: "https://i.imgur.com/6qrvClJt.jpg", dark_preview: "https://i.imgur.com/efkOcHwt.jpg"},
+    "gold": {light: "https://i.imgur.com/Zoi3eqH.jpg", dark: "https://i.imgur.com/alel8lS.jpg", light_preview: "https://i.imgur.com/Zoi3eqHt.jpg", dark_preview: "https://i.imgur.com/alel8lSt.jpg"},
+    "red": {light: "https://i.imgur.com/gv4mK4f.jpg", dark: "https://i.imgur.com/jAvHMiY.jpg", light_preview: "https://i.imgur.com/gv4mK4ft.jpg", dark_preview: "https://i.imgur.com/jAvHMiYt.jpg"}
+}
+Config.ImageUploadingType = "Imgur" // Set to "DiscordWebhooks" if you want to use discord's webhook image uploading, don't forget to change the 'Url' field.
 Config.ImageUploading = { // Do not change index names, only the values.
     Imgur: {
         Url: "https://api.imgur.com/3/image", // Change this only if you want to change the image uploading website, if you change this you might need to change the field and headers.
@@ -114,25 +155,30 @@ Config.ImageUploading = { // Do not change index names, only the values.
     }
 }
 Config.Notifications = {
-    NewMessage: {length: 2000}, // in ms, 1 second = 1000 ms
-    NewMail: {length: 2000}, // in ms, 1 second = 1000 ms
-    NewDarkMessage: {length: 2000}, // in ms, 1 second = 1000 ms
-    NewTweet: {length: 2000}, // in ms, 1 second = 1000 ms
-    NewTweetReply: {length: 2000}, // in ms, 1 second = 1000 ms
-    NewAd: {length: 2000}, // in ms, 1 second = 1000 ms
-    MissedCall: {length: 2000}, // in ms, 1 second = 1000 ms
-    Error: {length: 2000}, // in ms, 1 second = 1000 ms
-    Success: {length: 2000}, // in ms, 1 second = 1000 ms
+    NewMessage: {length: 2000}, // length is in ms, 1 second = 1000 ms
+    NewMail: {length: 2000},
+    NewDarkMessage: {length: 2000},
+    NewTweet: {length: 2000},
+    NewMention: {length: 2000},
+    NewFollower: {length: 2000},
+    NewTweetReply: {length: 2000},
+    NewAd: {length: 2000},
+    MissedCall: {length: 2000},
+    Error: {length: 2000},
+    Success: {length: 2000},
 }
 Config.DefaultSettings = {
+    profile_picture: "", // "" - no profile picture by default, you can add your own profile picture for the settings & contacts apps for the player.
+    silent_mode: false, // false - turned off by default, true - turned on by default.
     volume: 100, // Default volume, 0-100
-    brightness: 100, // Default brightness, 0-100
-    size: 50, // Default size, 0-100
+    brightness: 100, // Default screen brightness, 0-100
+    size: 60, // Default phone size, 0-100
     airplane_mode: false, // false - turned off by default, true - turned on by default.
-    anonymous_calls: false, // false - turned off by default, true - turned on by default.
+    private_number: false, // false - turned off by default, true - turned on by default.
     airdrop: true, // false - turned off by default, true - turned on by default.
-    group_messaging: false, // false - turned off by default, true - turned on by default.
-    darkmode: true, // false - turned off by default, true - turned on by default.
+    group_messaging: true, // false - turned off by default, true - turned on by default.
+    darkmode: false, // false - turned off by default, true - turned on by default.
+    twitter_notifications: {followers: true, tweets: 2, mentions: 2} // 'mentions' and 'tweets': 0 - turned off, 1 - only from followed users, 2 - all. 'followers': true - will send new follower notifications, false - will not send new follower notifications.
 }
 Config.SystemNotifications = {
     icon: "fas fa-cog", // Notification icon
@@ -141,6 +187,7 @@ Config.SystemNotifications = {
 
 /* YOU CAN TRANSLATE LABELS, CHANGE ICONS, COLORS, AND ALL OTHER THINGS OF HOME SCREEN APPS RIGHT HERE!
    ONLY 4 OR LESS APPLICATIONS ON THE BOTTOM IS RECOMMENDED, MORE THAN THAT WILL/MIGHT CAUSE VISUAL BUGS!
+   ! IF YOU DECIDE TO REMOVE ANY APPS, REMOVE OR COMMENT OUT THEIR HTML IN INDEX.HTML
    !! DO NOT CHANGE THE APPLICATION NAMES, IF YOU DO IT WILL BREAK MANY FUNCTIONS, POSSIBLY MAKING THE SCRIPT UNUSABLE UNTIL YOU CHANGE IT BACK ONLY CHANGE THE LABELS */
 Config.Applications = {
     "Phone": {
@@ -151,10 +198,16 @@ Config.Applications = {
         background: ["#67ff81", "#01b41f"], // This can either be an array with two items ["color1", "color2"] or just a string "color", if its an array it'll be a gradient.
         bottom: true, // Put the app to the bottom box of the screen, set false to keep it on the home screen top.
         downloadable: false, // Add the app to home screen automatically and hide it from app store, set false to put it in app store and to not install this app automatically.
+        //allowed_jobs: ["police", "ambulance"], // Jobs that can download this app from the app store and can open it.
         notifications: {
             icon: "fas fa-phone-alt", // Notification icon
             color: "#fff" // Notification icon color
-        }
+        },
+        // Custom callback (a function that gets executed when you open or close the app). YOU MUST RETURN TRUE TO HAVE THE APP OPEN FOR YOU. Uncomment this to work.
+        /*customCallback: function(status) { // Status will be TRUE when the app is opened and FALSE when the app is closed (boolean type argument).
+            // Your app load function here, you have to change the app's DOM here, as that's when the HTML loads.
+            return true; // You can return false to stop the app from opening. (When status is FALSE you don't have to return anything)
+        }*/
     },
     "Messages": {
         label: "Messages",
@@ -201,7 +254,7 @@ Config.Applications = {
         icon: "fab fa-twitter",
         icon_color: "#fff",
         icon_image: "",
-        background: ["#24a5f0", "#1d87c4"],
+        background: ["#0da7ff", "#47b9fb"],
         bottom: false,
         downloadable: true,
         downloadTime: 5000, // in miliseconds, 1000 ms = 1 second
@@ -297,15 +350,31 @@ Config.Applications = {
     },
     "Notes": {
         label: "Notes",
-        icon: "fas fa-pen",
+        icon: "fas fa-file-alt",
         icon_color: "#000",
         icon_image: "notes.png",
         background: "#fff",
         bottom: false,
         downloadable: false,
         notifications: {
-            icon: "fas fa-pen",
+            icon: "fas fa-file-alt",
             color: "#fff"
+        }
+    },
+    "Music": {
+        label: "YouTube Music",
+        description: "Listen to music with friends!",
+        icon: "fas fa-waveform",
+        icon_color: "#e61717",
+        icon_image: "",
+        icon_size: "1vw",
+        background: "#fff",
+        bottom: false,
+        downloadable: true,
+        downloadTime: 2000, // in miliseconds, 1000 ms = 1 second
+        notifications: {
+            icon: "fas fa-waveform",
+            color: "#e61717"
         }
     },
     "Darkchat": {
@@ -338,4 +407,10 @@ Config.AppstoreCategories = {
         label: "Social",
         default: false,
     }
+}
+
+// Proxy server
+Config.ProxyServer = {
+    ip: "https://music.high-scripts.com", // Your proxy server's IP, using our default proxy server is not recommended. Currently it is only for YouTube Music app.
+    port: 8443 // This port is only for our public API, with the included Node.JS proxy server with our phone the port can be configured by you, by default it is 8443.
 }

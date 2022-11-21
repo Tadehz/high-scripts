@@ -26,9 +26,13 @@ Locales["en"] = {
         "Saturday"
     ], // Do not change the order the days are laid out.
     "today": "Today",
+    "tomorrow": "Tomorrow",
     "yesterday": "Yesterday",
     "justnow": "Just now",
-    "minutesago": "{0}m ago",
+    "minutesago": "{0}m ago", // {0} is minutes
+    "hoursago": "{0}h ago", // {0} is hours
+    "shortseconds": "s",
+    "couldnotfetch": "Could not fetch data",
     "unknown": "Unknown",
     "error": "Error",
     "foundresults": "Found {0} results", // {0} is result count
@@ -36,6 +40,11 @@ Locales["en"] = {
     "remove": "REMOVE",
     "clear": "Clear",
     "clearall": "Clear all",
+    "on": "On",
+    "off": "Off",
+    // Time
+    "am": "AM",
+    "pm": "PM",
     // Lockscreen
     "showless": `<i class="fas fa-chevron-down" style="margin-right: 0.3vw;"></i>Show less`,
     // App store
@@ -44,17 +53,21 @@ Locales["en"] = {
     // Phone app
     "calling": "Calling..",
     "connecting": "Connecting..",
-    "callended": "Call ended",
+    "user_unavailable": "User Unavailable",
+    "user_busy": "User Busy",
+    "callended": "Call Ended",
     "cancelled": "Cancelled",
     "privatenumber": "Private Number",
-    "missed_call": "Missed call from {0}", // {0} is the caller number/name
+    "missed_call": "Missed call from <strong>{0}</strong>", // {0} is the caller number/name
     // Message app
+    "member_you": "(You)",
     "person": "Person",
     "people": "People",
     "member": "Member",
     "members": "Members",
     "location": "🗺️ Location",
     "attachment": "Attachment #{0}", // {0} is the attachment ID
+    "image": "Image #{0}", // {0} is the attachment (image) ID
     "attached_image": "(Attached image)",
     "left_contacts": "You can select {0} more contacts", // {0} is the remaining contact count
     "max_contacts": "You can only select {0} contacts in total!", // {0} is the allowed contact count
@@ -72,31 +85,59 @@ Locales["en"] = {
     "playerinfo": "<strong>{0}</strong><br>ID: <strong>{1}</strong>", // {0} is player number, {1} is player ID
     // Notes app
     "new_note": "New Note",
+    "last_edited": "Last edited {0}", // {0} is the date
+    // Music app
+    "new_playlist": "New Playlist",
     // Mail app
     "no_subject": "(No subject)",
     "mail_me": "Me",
     "replying_mail": "Re: {0}", // {0} is the subject
     "mail_to": "To: {0}", // {0} are the recipients
     // Context menu
+    "online": "Online",
+    "offline": "Offline",
+    "invisible": "Invisible",
+    "save_song": "Save to playlist",
+    "remove_song": "Remove from playlist",
+    "delete_playlist": "Delete playlist",
+    "edit_playlist": "Edit playlist",
     "edit": "Edit",
     "report": "Report",
     "delete": "Delete",
+    "copy_message": "Copy Message",
+    "manage_group": "Manage Group",
+    "copy": "Copy",
     "reply": "Reply",
     "addcontact": "Add Contact",
+    "call": "Call",
+    "openchat": "Open Chat",
     "mutechat": "Mute Chat",
     "unmutechat": "Unmute Chat",
     "mutegroup": "Mute Group",
     "unmutegroup": "Unmute Group",
+    "removeperson": "Remove Member",
     "markasread": "Mark as Read",
     "leavegroup": "Leave Group",
+    "showpeople": "Show People",
+    "hidepeople": "Hide People",
     "deletegroup": "Delete Group",
+    "kickmember": "Kick Member",
+    "banmember": "Ban Member",
     "copyinvite": "Copy Invite",
     "select_gallery": "Select from gallery",
     "take_photo": "Take a photo",
+    "remove_photo": "Remove photo",
+    "editprofile": "Edit Profile",
+    "blockuser": "Block",
+    "unblockuser": "Unblock",
+    "banuser": "Ban User",
+    "banaccount": "Ban Account",
+    "logout": "Log out",
     // Camera app
     "uploadimage": 'Click to <span style="color: #FDBB13">upload</span> the image!',
     "uploadingimage": "Uploading image..",
     "failedupload": "Failed to upload!",
+    "times": "x",
     // Choose photos
     "totalphotos": "{0} photos",
     // AirDrop
@@ -118,12 +159,13 @@ Locales["en"] = {
         "numbernotfilled": "You need to fill in the number!",
         "messagenotfilled": "You need to fill in the message!",
         "locationcooldown": "You're sending locations too fast!",
+        "wrongdateselected": "Wrong date selected!",
+        "norequiredjob": "You don't have access to this app!",
         // Camera app
         "imagesharingcooldown": "You cannot share images that fast!",
         "sharedimage": "You've shared the image to the nearest player!",
         "imageuploadtoooften": "You're sending images too often! Wait a few seconds!",
         "imageurlcopied": "Image link has been copied to the clipboard!",
-        "cantrotateinportrait": "Cannot rotate camera in portrait mode!",
         // Contacts app
         "contactalreadyexists": "You already have a contact with this number!",
         "cannoteditcontact": "You cannot edit this contact!",
@@ -133,6 +175,7 @@ Locales["en"] = {
         "cannotsetnumbertoyourown": "Cannot set phone number to your own!",
         "sharingcooldown": "You cannot share contact details that fast!",
         "sharedcontact": "You've shared the contact details to the nearest player!",
+        "maxcontactschosen": "You cannot select more contacts!",
         // Phone app
         "usernotavailable": "User is not available!",
         "cannotcallyourself": "You cannot call your self!",
@@ -170,6 +213,7 @@ Locales["en"] = {
         "cantcreategroupsoff": "Cannot create groups with group messaging turned off!",
         "cantopengroupsoff": "Cannot open groups with group messaging turned off!",
         "addedtogroup": "You have been added to a group called <strong>{0}</strong>!",
+        "kickedperson": "<strong>{0}</strong> has been kicked from the group!", // {0} is the kicked person name/number
         // Dark chat app
         "airplanecantjoindarkgroups": "Cannot join groups with airplane mode on!",
         "airplanecantcreatedarkgroup": "Cannot create groups with airplane mode on!",
@@ -177,19 +221,28 @@ Locales["en"] = {
         "darknicknamenotfilled": "You need to fill in your nickname!",
         "darkgroupmembersoutofrange": "Group members limit out of range!",
         "darkgroupnamenotfilled": "You need to fill in the group name!",
+        "darkgroupinvitetooshort": "Invite code is too short!",
         "copiedinvite": "Invite code copied to clipboard!",
         "darkinvitecodenotfilled": "You need to fill in the invite code!",
         "kickedmember": "<strong>{0}</strong> has been kicked from the group!", // {0} is the kicked member name
         "bannedmember": "<strong>{0}</strong> has been banned from the group!", // {0} is the kicked member name
-        // App store
-        "airplanecantdownload": "Cannot download apps with airplane mode!",
+        // Music app
+        "failedtoplay": "Failed to play this song!",
+        "noplaylists": "You don't have a single playlist!",
+        // Notes app
+        "reminders": "REMINDERS",
+        "titlenotfilled": "You need to fill in the title!",
+        "descriptionnotfilled": "You need to fill in the description!",
         // Ads app
-        "donthaverequiredjob": "You don't have any of the required jobs to post ads!",
         "adtooshort": "Content is too short!",
         // Twitter app
-        "replying": "Replying to <strong>@{0}</strong>", // {0} is the tweet's author that a person is replying to.
+        "replying": "Replying to <strong>@{0}</strong>", // {0} is the tweet's author that a person is replying to
+        "mentioned": "You've been mentioned by <strong>@{0}</strong>", // {0} is the tweet's author that tagged you
+        "newfollower": "You have a new follower <strong>@{0}</strong>", // {0} is the new follower's nickname
         "airplanecantpost": "Cannot post tweets with airplane mode on!",
         "tweettooshort": "Tweet is too short!",
+        "tweettoolong": "Tweet is too long!",
+        "replytoolong": "Reply is too long!",
         "replytooshort": "Reply is too short!",
         "nicknametooshort": "Nickname is too short!",
         "passwordtooshort": "Password is too short!",
@@ -223,16 +276,24 @@ Locales["en"] = {
         "showall": "Show all",
         "showless": "Show less",
         "clearall": `Clear all`,
+        // Outdated phone version
+        "outdated_title": "A new version of <i><strong>highOS</strong></i> is available!",
+        "outdated_description": "Ask the server owner to update it!",
         // Twitter
         "twitter_title": "Twitter",
         "twitter_settings_title": "Settings",
-        "change_nickname": "Change nickname",
-        "change_password": "Change password",
-        "change_picture": "Change profile picture",
+        "followed": "Followed",
+        "all": "All",
+        "change_nickname": "Nickname",
+        "change_password": "Password",
+        "change_picture": "Profile picture",
+        "change_banner": "Profile banner",
+        "cancel_settings": "Cancel",
         "save_settings": "Save settings",
-        "log_out": "Log out",
         "twitter_post_title": "Post",
         "replying": "Replying to <strong>@{0}</strong>", // {0} is the tweet's author that a person is replying to.
+        "hiddentweet": "Hidden tweet from a blocked user",
+        "hidetweet": "Hide tweet",
         "post_title": "Title",
         "post_message": "Message",
         "post_photo": "Photo",
@@ -255,6 +316,32 @@ Locales["en"] = {
         "back_forgot": "Back",
         "or_login": `Or login <span id="cancelreset">here!</span>`,
         "forgot_password": "Forgot password?",
+        "banned_title": "Banned",
+        "banned_description": "You are banned from using Twitter app until <strong>{0}</strong>", // {0} is the date
+        "user_followers": "<strong>{0}</strong> Followers", // {0} is the amount of followers
+        "user_tweets": "<strong>{0}</strong> Tweets", // {0} is the amount of tweets
+        "user_membersince": "Member since <strong>{0}</strong>", // {0} is the date
+        "twitter_follow": "Follow",
+        "twitter_unfollow": "Unfollow",
+        "twitter_notifications": "Notification preferences",
+        "twitter_tweetnotifications": "Tweets",
+        "twitter_mentionnotifications": "Mentions",
+        "twitter_othernotifications": "Other",
+        "twitter_alltweetnotifications": "All",
+        "twitter_followedtweetnotifications": "Followed",
+        "twitter_notweetnotifications": "None",
+        "twitter_mentionallnotifications": "All",
+        "twitter_mentionfollowednotifications": "Followed",
+        "twitter_mentionnonotifications": "None",
+        "twitter_followernotifications": "New followers",
+        "recently_mentioned": "Recently mentioned",
+        "no_mentions": "No mentions",
+        "clear_all_mentions": "Clear all",
+        "bantwitter_button": "Ban",
+        "bantwitteruser_title": "Ban User",
+        "bantwitteruser_banneduntil": 'User will be banned until <span id="currentbanneduntil"></span>', // Do not change/remove the span id!
+        "bantwitteraccount_title": "Ban Account",
+        "bantwitteraccount_banneduntil": 'Account will be banned until <span id="currentbanneduntil"></span>', // Do not change/remove the span id!
         // Messages
         "messages_title": "Messages",
         "new_message_title": "New message",
@@ -273,6 +360,35 @@ Locales["en"] = {
         "manage_group_save": "Save Changes",
         "quick_delete": "Quick Delete",
         "create_group": "Create group",
+        "unread_messages": "{0} Unread messages", // {0} is the amount of messages
+        "people_title": "People",
+        // Music
+        "music_title": "Hey",
+        "library": "Library",
+        "playlists": "Playlists",
+        "recently_played": "Recently played",
+        "show_all": "Show all",
+        "now_playing": "Now playing",
+        "popular": "Popular",
+        "songs_more": "{0} more", // {0} is the amount of other not shown songs
+        "liked_artists_other": "and {0} others", // {0} is the amount of other unmentioned artists
+        "liked_songs": "Liked songs",
+        "amount_liked": "{0} liked ", // {0} is the amount
+        "songs": "songs", // 0 songs and more than 1 songs
+        "song": "song", // 1 song
+        "song_results_title": "Songs",
+        "video_results_title": "Videos",
+        "no_liked_description": "Your liked songs will be added here",
+        "next_up": "Next up",
+        "create_playlist": "Create playlist",
+        "your_playlists": "Your playlists",
+        "search_results": "Search results",
+        "add_to_playlist": "Add to playlist",
+        "playlists_save": "Save",
+        "edit_playlist": "Edit playlist",
+        "playlist_name": "Name",
+        "playlist_photo": "Thumbnail",
+        "playlist_save": "Save",
         // App store
         "featured_app_title": "Featured app",
         "featured_app_description": "The #1 app to download from app store!",
@@ -282,7 +398,7 @@ Locales["en"] = {
         "ads_description": "Advertisments app",
         "new_ad_button": "Post",
         "new_ad_back": "Back",
-        "new_ad_title": "New Advertisment",
+        "new_ad_title": "New Advertisment in <strong>{0}</strong>",
         "new_ad_description": "Ad will be automatically assigned to a category",
         "new_ad_topic": "Topic",
         "new_ad_content": "Content",
@@ -292,6 +408,7 @@ Locales["en"] = {
         "ad_messages": "Messages",
         // Contacts
         "contacts_title": "Contacts",
+        "select_contacts_title": "Select contacts",
         "contacts_foundresults": "TOP MATCHES",
         "contact_info_title": "Contact",
         "contact_info_calls": "Call history",
@@ -326,8 +443,6 @@ Locales["en"] = {
         "mail_editaccount_password": "Password",
         "mail_editaccount_save": "Save",
         "edit_account": "Edit account",
-        "toggle_notifications": "Toggle notifications",
-        "log_out": "Log out",
         "inbox": "Inbox",
         "trash": "Trash",
         "sent": "Sent",
@@ -371,6 +486,7 @@ Locales["en"] = {
         "darkchat_newgroup_name": "Name",
         "darkchat_newgroup_members": "Members",
         "darkchat_newgroup_photo": "Photo",
+        "darkchat_newgroup_invitecode": "Invite code",
         "darkchat_newgroup_create": "Create",
         "darkchat_editgroup_name": "Name",
         "darkchat_editgroup_members": "Members",
@@ -386,6 +502,33 @@ Locales["en"] = {
         "darkchat_joingroup_join": "Join",
         // Notes
         "notes_title": "Notes",
+        "reminders": "REMINDERS",
+        "notes": "NOTES",
+        "edit_reminder": "Edit",
+        "delete_reminder": "Delete",
+        "new_note": "New note",
+        "delete_note": "Delete",
+        "pin_note": "Pin",
+        "unpin_note": "Unpin",
+        "new_reminder": "New reminder",
+        "new_reminder_title": "New Reminder",
+        "edit_reminder_title": "Edit Reminder",
+        "new_reminder_description": "The phone will remind you at selected date & time!",
+        "edit_reminder_description": "Editing reminder <strong>{0}</strong>", // {0} is the reminder title
+        "new_reminder_scheduled": 'You will be reminded <span id="currentreminderdate"></span>', // Do not change/remove the span id!
+        "new_reminder_date": "Date and Time",
+        "new_reminder_name": "Title",
+        "new_reminder_detail": "Description",
+        "new_reminder_alarm": "Alarm",
+        "new_reminder_create": "Create",
+        "edit_reminder_save": "Save",
+        "reminder_underminute": '<span style="color:#ffb021">IN UNDER A MINUTE</span>', 
+        "reminder_minute": "MINUTE", // 1 minute, 21 minute, 31 minute, etc.
+        "reminder_minutes": "MINUTES", // 2 minutes, 100 minutes, etc.
+        "reminder_inminutes": '<span style="color:#ffb021">IN {0} {1}', // {0} is the minutes, {1} is either reminder_minute or reminder_minutes
+        "reminder_inhours": '<span style="color:#70ff66">IN {0} HOURS</span>', // {0} is the hours
+        "reminder_minutesago": '<span style="color:#ff4f4f">{0} {1} AGO</span>', // {0} is the minutes, {1} is either reminder_minute or reminder_minutes
+        "reminder_hoursago": '<span style="color:#ff4f4f">{0} HOURS AGO</span>', // {0} is the hours
         // Phone
         "phone_title": "Phone",
         "all_calls": "All",
@@ -397,18 +540,25 @@ Locales["en"] = {
         "backgrounds_title": "Backgrounds",
         "ringtones_title": "Ringtones",
         "airplane_mode": "Airplane mode",
-        "anonymous_call": "Anonymous calls",
+        "private_number": "Private Number",
         "dark_mode": "Dark Mode",
         "airdrop": "AirDrop",
         "brightness": "Brightness",
         "sounds": "Sounds",
+        "volume": "Volume",
+        "silent_mode": "Silent Mode",
         "phone_size": "Phone size",
         "group_messaging": "Group Messaging",
         "background": "Background",
         "lock_background": "Lockscreen background",
-        "ringtones": "Ringtones",
+        "ringtone": "Ringtone",
+        "new_message": "New Message",
+        "new_mail": "New Mail",
+        "new_darkmessage": "New Dark Message",
+        "new_airdrop": "New Airdrop",
         "background_url": "Background url",
         "other_backgrounds": "Backgrounds",
+        "reminder": "Reminder",
         // Gallery
         "no_photos": "No photos!",
         // Camera
@@ -425,6 +575,10 @@ Locales["en"] = {
         "airdrop": "AirDrop",
         "airdrop_accept": "Accept",
         "airdrop_decline": "Decline",
+        // Buttons
+        "toggle_notifications": "Toggle notifications",
+        "log_out": "Log out",
+        "view_profile": "View Profile",
 
         //////////////////
         // Placeholders //
@@ -439,6 +593,9 @@ Locales["en"] = {
             "image_url": "www.photo.com/photo.png",
             "tweet_title": "...",
             "tweet_content": "...",
+            "bantwitter_reason": "Reason",
+            "reminder_title": "Title",
+            "reminder_description": "Description",
             "mail_fullname": "Name Surname",
             "mail_address": "...",
             "mail_password": "...",
@@ -450,14 +607,18 @@ Locales["en"] = {
             "ad_content": "Enter your text",
             "search_apps": "Search applications",
             "search_notes": "Search for notes",
+            "search_music": "Search for music",
+            "search_ads": "Search for ads",
             "search_mail": "Search for mail",
             "search_contacts": "Search for contacts",
             "search_chats": "Search for chats",
+            "playlist_name": "...",
             "group_name": "...",
             "chat_message": "Your message",
             "enter_nickname": "Enter your nickname",
-            "darkchat_group_name": "Group name",
+            "darkchat_group_name": "...",
             "darkchat_group_members": "0",
+            "darkchat_group_invitecode": "!Abc123$",
             "darkchat_nickname": "...",
             "darkchat_invitecode": "...",
             "mail_account_name": "...",

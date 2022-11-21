@@ -13,6 +13,12 @@ if(IsDuplicityVersion()) then
         local src = source
         TriggerEvent("high_phone:playerDropped", src)
     end)
+    
+    if(FOB.Functions.AddPlayerMethod) then
+        -- NOTE THAT 'high_phone:addInventoryItem' AND 'high_phone:removeInventoryItem' REQUIRE DIFFERENT 2ND ARGUMENTS, THESE REQUIRE THE AMOUNT OF ITEM REMOVED/ADDED, UNLIKE ESX ALREADY GIVES THE AMOUNT OF ITEM THE PLAYER HAS AFTER REMOVING/ADDING IT.
+        Config.Events["addItem"] = "high_phone:addInventoryItem" -- item added to inventory client-side event, requires the item name as the 1st argument and the amount of item added as the 2nd argument.
+        Config.Events["removeItem"] = "high_phone:removeInventoryItem" -- item removed from inventory client-side event, requires the item name as the 1st argument and the amount of item removed as the 2nd argument.
+    end
 end
 
 Config.Events = {
@@ -46,6 +52,16 @@ Config.Invoices = {
     }]]
 }
 
+Config.OnPlayerLoaded = function(player) -- Argument 'player' is the table returned from Config.FrameworkFunctions.getPlayer function.
+    QBCore.Functions.AddPlayerMethod(player.source, "AddItem", function(item, amount, slot, info)
+        TriggerClientEvent(Config.Events["addItem"], item, amount)
+    end)
+
+    QBCore.Functions.AddPlayerMethod(player.source, "RemoveItem", function(item, amount, slot)
+        TriggerClientEvent(Config.Events["addItem"], item, amount)
+    end)
+end
+
 -- DO NOT RENAME ANY OF THE 'self' TABLE INDEX NAMES, KEEP THEM AS THEY ARE, ONLY CHANGE THEIR VALUES AND FUNCTIONS (DO NOT REMOVE OR CHANGE THE ARGUMENTS IN FUNCTIONS)
 Config.FrameworkFunctions = {
     -- Client-side trigger callback
@@ -70,7 +86,7 @@ Config.FrameworkFunctions = {
         return FOB.Functions.GetClosestPlayer()
     end,
     
-    -- Client-side get closest ped and distance to ped
+    -- Client-side get pool of ped entities
     getPeds = function()
         -- Returns a pool of ped entities.
         return FOB.Functions.GetPeds()
@@ -160,6 +176,7 @@ Config.VoipFunctions = {
     usedVoip = "auto", -- 'auto' automatically detects your used VOIP and uses it's default functions. If you're using a renamed VOIP or something similar, put an index name of one of the VOIP tables in this table.
     -- Configure your custom functions below, do not rename any of the table function names/values, modify only the functions themselves. Do not change the function arguments as well.
     ["mumble-voip"] = {
+        voiceTarget = 2, -- Mumble voice target id, do not change this if you haven't changed it in mumble-voip's code.
         serverSided = false,
         addToCall = function(id)
             exports["mumble-voip"]:SetCallChannel(id)
@@ -181,6 +198,7 @@ Config.VoipFunctions = {
         end
     },
     ["pma-voice"] = {
+        voiceTarget = 1, -- Mumble voice target id, do not change this if you haven't changed it in pma-voice's code.
         serverSided = false,
         addPlayerToCall = function(id)
             exports['pma-voice']:SetCallChannel(id)

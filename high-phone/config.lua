@@ -58,7 +58,7 @@ Config.SyncedSoundDistance = 10 -- How near another player you have to be to hea
 Config.SyncedSoundModifier = 0.5 -- Modifier of the emitted volume by other people's phones. Default 0.5 means 50% of their phone's volume, e.g. if they have their volume set to 60%, you'll hear it as if its 30% volume when standing near the player.
 Config.SyncedSoundPocketModifier = 0.3 -- (Ignores Config.SyncedSoundModifier!) Modifier of the emitted volume by other people's phones while they're not open. Default 0.3 means 30% of their phone's volume, e.g. if they have their volume set to 100%, you'll hear it as if its 30% volume when standing near the player.
 
-Config.SyncedMusic = true -- Will other players near you hear your YouTube music app's played songs?
+Config.SyncedMusic = false -- Will other players near you hear your YouTube music app's played songs?
 Config.SyncedMusicDistance = 10 -- How near another player you have to be to hear their music?
 Config.SyncedMusicModifier = 0.5 -- Modifier of the emitted volume by other people's phones. Default 0.5 means 50% of their phone's volume, e.g. if they have their volume set to 60%, you'll hear it as if its 30% volume when standing near the player.
 Config.SyncedMusicPocketModifier = 0.3 -- (Ignores Config.SyncedSoundModifier!) Modifier of the emitted volume by other people's phones while they're not open. Default 0.3 means 30% of their phone's volume, e.g. if they have their volume set to 100%, you'll hear it as if its 30% volume when standing near the player.

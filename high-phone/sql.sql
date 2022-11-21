@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `phone_groups` (
   `owner` varchar(255) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `photo` varchar(512) NOT NULL DEFAULT '',
-  `members` mediumtext NOT NULL,
+  `members` mediumtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `phone_darkgroups` (
   `name` varchar(50) DEFAULT NULL,
   `photo` varchar(512) NOT NULL DEFAULT '',
   `maxmembers` int(11) DEFAULT 0,
-  `members` mediumtext NOT NULL,
+  `members` mediumtext DEFAULT NULL,
   `bannedmembers` mediumtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `phone_messages` (
   `from` varchar(255) DEFAULT NULL,
   `to` varchar(255) DEFAULT NULL,
   `message` varchar(512) DEFAULT NULL,
-  `attachments` mediumtext NOT NULL,
+  `attachments` mediumtext DEFAULT NULL,
   `time` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `phone_darkmessages` (
   `from` varchar(255) DEFAULT NULL,
   `to` int(11) DEFAULT NULL,
   `message` varchar(512) DEFAULT NULL,
-  `attachments` mediumtext NOT NULL,
+  `attachments` mediumtext DEFAULT NULL,
   `time` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `views` int(11) NOT NULL DEFAULT 0,
   `likes` int(11) NOT NULL DEFAULT 0,
   `time` bigint(20) DEFAULT NULL,
-  `likers` longtext NOT NULL,
+  `likers` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `phone_mail` (
   `owner` varchar(128) DEFAULT NULL,
   `subject` varchar(50) DEFAULT NULL,
   `starred` tinyint(1) NOT NULL DEFAULT 0,
-  `mail` longtext NOT NULL,
+  `mail` longtext DEFAULT NULL,
   `trash` tinyint(1) NOT NULL DEFAULT 0,
   `muted` tinyint(1) NOT NULL DEFAULT 0,
   `lastOpened` bigint(20) NOT NULL DEFAULT 0,
@@ -125,10 +125,10 @@ CREATE TABLE IF NOT EXISTS `phone_twitteraccounts` (
   `picture` varchar(512) NOT NULL DEFAULT '',
   `banner` varchar(512) NOT NULL DEFAULT '#000',
   `rank` varchar(50) NOT NULL DEFAULT 'default',
-  `joinedat` bigint(20) NOT NULL DEFAULT 0,
-  `blockedusers` longtext NOT NULL,
-  `followers` longtext NOT NULL,
-  `following` longtext NOT NULL,
+  `joinedat` datetime DEFAULT CURRENT_TIMESTAMP(),
+  `blockedusers` longtext DEFAULT NULL,
+  `followers` longtext DEFAULT NULL,
+  `following` longtext DEFAULT NULL,
   `banneduntil` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)

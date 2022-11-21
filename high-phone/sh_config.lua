@@ -9,10 +9,10 @@ if(not ESXExport and not ESXExport.getSharedObject) then
     TriggerEvent(SharedObject, function(obj) FOB = obj end)
 
     if(not IsDuplicityVersion()) then
-        Citizen.CreateThread(function()
+        CreateThread(function()
             while FOB == nil do
                 TriggerEvent(SharedObject, function(obj) FOB = obj end)
-                Citizen.Wait(10)
+                Wait(10)
             end
         end)
     end
@@ -23,7 +23,10 @@ end
 Config.Events = {
     playerLoaded = "esx:playerLoaded", -- player loaded server-side event, requires a player source as the 1st argument.
     playerDropped = "esx:playerDropped", -- player disconnected server-side event, requires a player source as the 1st argument.
-    updateJob = "esx:setJob" -- player job updated server-side event, requires a player source as the 1st argument.
+    updateJob = "esx:setJob", -- player job updated server-side event, requires a player source as the 1st argument.
+    -- NOTE THAT 'high_phone:addInventoryItem' AND 'high_phone:removeInventoryItem' REQUIRE DIFFERENT 2ND ARGUMENTS, THESE REQUIRE THE AMOUNT OF ITEM REMOVED/ADDED, UNLIKE ESX ALREADY GIVES THE AMOUNT OF ITEM THE PLAYER HAS AFTER REMOVING/ADDING IT.
+    addItem = "esx:addInventoryItem", -- item added to inventory client-side event, requires the item name as the 1st argument and the count of the item in player's inventory AFTER adding as the 2nd argument.
+    removeItem = "esx:removeInventoryItem" -- item removed from inventory client-side event, requires the item name as the 1st argument and the count of the item in player's inventory AFTER removing as the 2nd argument.
 }
 
 Config.PlayersTable = "users" -- Database players table.
@@ -72,7 +75,7 @@ Config.FrameworkFunctions = {
         return FOB.Game.GetClosestPlayer()
     end,
 
-    -- Client-side get closest ped and distance to ped
+    -- Client-side get pool of ped entities
     getPeds = function()
         -- Returns a pool of ped entities.
         return FOB.Game.GetPeds()
@@ -113,7 +116,7 @@ Config.FrameworkFunctions = {
                     -- Replace only the nameTable value, do not touch the code below. This is a way to optimize the query calls by caching the player's name and lastname, since ESX doesn't cache it like QBCore does.
 
                     if(not cachedPlayer.name) then
-                        _G.Players[source].name = nameTable
+                        Players[source].name = nameTable
                     end
 
                     return nameTable
@@ -162,6 +165,7 @@ Config.VoipFunctions = {
     usedVoip = "auto", -- 'auto' automatically detects your used VOIP and uses it's default functions. If you're using a renamed VOIP or something similar, put an index name of one of the VOIP tables in this table.
     -- Configure your custom functions below, do not rename any of the table function names/values, modify only the functions themselves. Do not change the function arguments as well.
     ["mumble-voip"] = {
+        voiceTarget = 2, -- Mumble voice target id, do not change this if you haven't changed it in mumble-voip's code.
         serverSided = false,
         addToCall = function(id)
             exports["mumble-voip"]:SetCallChannel(id)
@@ -183,6 +187,7 @@ Config.VoipFunctions = {
         end
     },
     ["pma-voice"] = {
+        voiceTarget = 1, -- Mumble voice target id, do not change this if you haven't changed it in pma-voice's code.
         serverSided = false,
         addPlayerToCall = function(id)
             exports['pma-voice']:SetCallChannel(id)
@@ -209,7 +214,7 @@ Config.VoipFunctions = {
             NetworkSetTalkerProximity(0.0)
         end,
         removeFromCall = function()
-            Citizen.InvokeNative(0xE036A705F989E049)
+            InvokeNative(0xE036A705F989E049)
             NetworkSetTalkerProximity(2.5)
         end
     }
