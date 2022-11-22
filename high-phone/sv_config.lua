@@ -57,25 +57,6 @@ Config.GenerateRandomIBAN = function(source)
   return iban
 end
 
--- Do not modify the framework functions, for that edit them in the 'sh_config.lua' and 'sh_config_QB.lua' files.
--- Change this function only if you know what you're doing!
-Config.HasPhone = function(source, cb)
-  local frameworkPlayer = Config.FrameworkFunctions.getPlayer(source)
-  if(frameworkPlayer) then
-      local foundItem = ""
-      for i, v in pairs(Config.PhoneItems) do
-          local itemCount = frameworkPlayer.getItemCount(i)
-          if(itemCount and itemCount > 0) then
-            foundItem = i
-            break
-          end
-      end
-      cb({has = foundItem ~= "", item = foundItem})
-  else
-      cb(false)
-  end
-end
-
 -- Change this function only if you know what you're doing!
 Config.SendWebhook = function(url, embeds)
   PerformHttpRequest(url, function(err, text, headers) end, 'POST', json.encode({username = "", embeds = embeds}), { ['Content-Type'] = 'application/json' })

@@ -51,6 +51,26 @@ Config.Invoices = {
     }]]
 }
 
+-- Its not worth to change this if you have both addItem and removeItem events, the phone will automatically use these events to count the amount of phones in player's inventory.
+-- Do not change the framework functions, just modify them in the functions below Config.HasPhone function, change this function only if you know what you're doing!
+Config.HasPhoneServer = true -- Execute this function below on the server-side or on the client-side? Only change to false if you've remade the function below to check for the items on the client-side (some frameworks have client-side getitem functions).
+Config.HasPhone = function(source)
+    local frameworkPlayer = Config.FrameworkFunctions.getPlayer(source)
+    if(frameworkPlayer) then
+        local foundItem = ""
+        for i, v in pairs(Config.PhoneItems) do
+            local itemCount = frameworkPlayer.getItemCount(i)
+            if(itemCount and itemCount > 0) then
+              foundItem = i
+              break
+            end
+        end
+        return {has = foundItem ~= "", item = foundItem}
+    else
+        return false
+    end
+end
+
 -- DO NOT RENAME ANY OF THE TABLE INDEX NAMES, KEEP THEM AS THEY ARE, ONLY CHANGE THEIR VALUES AND FUNCTIONS (DO NOT REMOVE OR CHANGE THE ARGUMENTS IN FUNCTIONS)
 Config.FrameworkFunctions = {
     -- Client-side trigger callback

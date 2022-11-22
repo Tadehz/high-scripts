@@ -13,12 +13,6 @@ if(IsDuplicityVersion()) then
         local src = source
         TriggerEvent("high_phone:playerDropped", src)
     end)
-    
-    if(FOB.Functions.AddPlayerMethod) then
-        -- NOTE THAT 'high_phone:addInventoryItem' AND 'high_phone:removeInventoryItem' REQUIRE DIFFERENT 2ND ARGUMENTS, THESE REQUIRE THE AMOUNT OF ITEM REMOVED/ADDED, UNLIKE ESX ALREADY GIVES THE AMOUNT OF ITEM THE PLAYER HAS AFTER REMOVING/ADDING IT.
-        Config.Events["addItem"] = "high_phone:addInventoryItem" -- item added to inventory client-side event, requires the item name as the 1st argument and the amount of item added as the 2nd argument.
-        Config.Events["removeItem"] = "high_phone:removeInventoryItem" -- item removed from inventory client-side event, requires the item name as the 1st argument and the amount of item removed as the 2nd argument.
-    end
 end
 
 Config.Events = {
@@ -52,14 +46,19 @@ Config.Invoices = {
     }]]
 }
 
-Config.OnPlayerLoaded = function(player) -- Argument 'player' is the table returned from Config.FrameworkFunctions.getPlayer function.
-    QBCore.Functions.AddPlayerMethod(player.source, "AddItem", function(item, amount, slot, info)
-        TriggerClientEvent(Config.Events["addItem"], item, amount)
-    end)
-
-    QBCore.Functions.AddPlayerMethod(player.source, "RemoveItem", function(item, amount, slot)
-        TriggerClientEvent(Config.Events["addItem"], item, amount)
-    end)
+-- Its not worth to change this if you have both addItem and removeItem events, the phone will automatically use these events to count the amount of phones in player's inventory.
+-- Do not change the framework functions, just modify them in the functions below Config.HasPhone function, change this function only if you know what you're doing!
+Config.HasPhoneServer = false -- Execute this function below on the server-side or on the client-side? Only change to false if you've remade the function below to check for the items on the client-side (some frameworks have client-side getitem functions).
+Config.HasPhone = function()
+    local foundItem = ""
+    for i, v in pairs(Config.PhoneItems) do
+        local hasItem = FOB.Functions.HasItem(i, 1)
+        if(hasItem) then
+            foundItem = i
+            break
+        end
+    end
+    return {has = foundItem ~= "", item = foundItem}
 end
 
 -- DO NOT RENAME ANY OF THE 'self' TABLE INDEX NAMES, KEEP THEM AS THEY ARE, ONLY CHANGE THEIR VALUES AND FUNCTIONS (DO NOT REMOVE OR CHANGE THE ARGUMENTS IN FUNCTIONS)
