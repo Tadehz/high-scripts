@@ -209,7 +209,7 @@ Config.VoipFunctions = {
     ["pma-voice"] = {
         voiceTarget = 1, -- Mumble voice target id, do not change this if you haven't changed it in pma-voice's code.
         serverSided = false,
-        addPlayerToCall = function(id)
+        addToCall = function(id)
             exports['pma-voice']:SetCallChannel(id)
         end,
         removeFromCall = function()
