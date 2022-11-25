@@ -1,7 +1,7 @@
 ALTER TABLE `users` ADD IF NOT EXISTS (
   `phone` varchar(50) DEFAULT NULL,
   `iban` varchar(50) DEFAULT NULL,
-  `twitteraccount` varchar(50) DEFAULT NULL,
+  `twitteraccount` int(11) DEFAULT NULL,
   `twitterban` datetime DEFAULT NULL,
   `settings` longtext DEFAULT NULL,
   `calls` longtext DEFAULT NULL,

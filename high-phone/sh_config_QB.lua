@@ -94,7 +94,7 @@ Config.FrameworkFunctions = {
     -- Server-side get player data, index names should be self explanatory to what the values have to contain or do
     getPlayer = function(source) 
         local self = {}
-        local Players = Players
+        local cachedPlayer = Players[source]
         -- The above should not be touched.
         
         local player = FOB.Functions.GetPlayer(source)
@@ -127,7 +127,7 @@ Config.FrameworkFunctions = {
                 bank = player.PlayerData.money["bank"] -- Bank money
             }
 
-            self.number = Players[source] and Players[source].number or nil -- Do not touch
+            self.number = cachedPlayer and cachedPlayer.number or nil -- Do not touch
             
             self.getIdentity = function()                
                 return {firstname = player.PlayerData.charinfo.firstname, lastname = player.PlayerData.charinfo.lastname}
@@ -389,6 +389,12 @@ Config.Commands = {
             ["no_permission"] = "No permission for this command!",
             ["songs_cleared_successfully"] = "All popular songs have been cleared!",
         }
+    },
+    ["reposition_phone"] = {
+        enabled = true,
+        name = "repositionphone",
+        suggestion_label = "Resets your phone's position on the screen if you've dragged it out",
+        args = {}
     }
 }
 

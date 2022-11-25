@@ -399,6 +399,12 @@ Config.Commands = {
             ["no_permission"] = "No permission for this command!",
             ["songs_cleared_successfully"] = "All popular songs have been cleared!",
         }
+    },
+    ["reposition_phone"] = {
+        enabled = true,
+        name = "repositionphone",
+        suggestion_label = "Resets your phone's position on the screen if you've dragged it out",
+        args = {}
     }
 }
 
