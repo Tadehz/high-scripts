@@ -54,7 +54,7 @@ git push
 ```
 5. Finally, open a pull request
     1. Open your forked repository on https://github.com
-    2. Find the message `This branch is x commit(s) ahead of YOUR_NICKNAME:main` click the `Contribute` button on the right side of the message and then `Open Pull Request`
+    2. Find the message `This branch is x commit(s) ahead of Tadehz:main` click the `Contribute` button on the right side of the message and then `Open Pull Request`
     3. You can put a description of your changes and you should keep the `Allow edits by maintainers` option toggled on.
     4. After you've double checked everything, just click on the green `Create pull request` button on the bottom right corner.
     5. We will review your pull request and merge it to the main branch if everything is good in up to 24 hours.
