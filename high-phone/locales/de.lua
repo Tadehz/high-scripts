@@ -121,7 +121,7 @@ Config.Languages["de"] = {
     ["newtransactionwebhook"] = {
         ["title"] = "💸 Neue Transaktion!",
         ["fields"] = {
-            {["name"] = "Transaktionsdaten", ["value"] = "Betrag: `${amount}`nGrund: `{Grund}`"},
+            {["name"] = "Transaktionsdaten", ["value"] = "Betrag: `${amount}`\nGrund: `{reason}`"},
             {["name"] = "Absenderdaten", ["value"] = "Kennung: `{senderIdentifier}`\nName: `{senderName}`\nID: `{senderId}`"},
             {["name"] = "Empfängerdaten", ["value"] = "Bezeichner: `{receiverIdentifier}`\nName: `{receiverName}`\nID: `{receiverId}`"}
         },
