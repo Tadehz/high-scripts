@@ -33,9 +33,9 @@ Config.Languages["de"] = {
         ["bannedfromgroup"] = "Du wurdest aus dieser Gruppe verbannt!",
         ["groupmemberlimitreached"] = "Das Mitgliederlimit der Gruppe wurde erreicht!",
         ["member_joined"] = "<strong>{memberName}</strong> ist der Gruppe beigetreten",
-        ["member_left"] = "<strong>{Mitgliedsname}</strong> hat die Gruppe verlassen",
+        ["member_left"] = "<strong>{memberName}</strong> hat die Gruppe verlassen",
         ["member_banned"] = "<strong>{memberName}</strong> wurde aus der Gruppe verbannt",
-        ["member_kicked"] = "<strong>{Mitgliedsname}</strong> wurde aus der Gruppe geworfen",
+        ["member_kicked"] = "<strong>{memberName}</strong> wurde aus der Gruppe geworfen",
     },
     -- Main
     ["open_phone"] = "Telefon öffnen",
@@ -94,7 +94,7 @@ Config.Languages["de"] = {
     ["newmailwebhook"] = {
         ["title"] = "📧 Neue Mail!",
         ["fields"] = {
-            {["name"] = "Maildaten", ["value"] = "To: `{recipients}`\nSubject: `{subject}`\nContent: `{Inhalt}`"},
+            {["name"] = "Maildaten", ["value"] = "To: `{recipients}`\nSubject: `{subject}`\nContent: `{content}`"},
             {["name"] = "Absenderdaten", ["value"] = "Kennung: `{senderIdentifier}`\nEmail: `{senderMailAddress}`\nName: `{senderName}`\nID: `{senderId}`"}
         },
         ["color"] = 15105570,
