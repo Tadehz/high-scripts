@@ -16,7 +16,7 @@ Locales["de"] = {
         "November", 
         "Dezember"
     ], // Ändere nicht die Reihenfolge, in der die Monate angeordnet sind.
-    "Wochentage": [
+    "weekdays": [
         "Sonntag",
         "Montag", 
         "Dienstag", 
@@ -65,7 +65,7 @@ Locales["de"] = {
     "people": "Leute",
     "member": "Mitglied",
     "members": "Mitglieder",
-    "Ort": "🗺️ Ort",
+    "location": "🗺️ Ort",
     "attachment": "Anhang #{0}", // {0} ist die Anhang-ID
     "image": "Bild #{0}", // {0} ist die ID des Anhangs (Bild)
     "attached_image": "(angehängtes Bild)",
@@ -493,7 +493,7 @@ Locales["de"] = {
         "darkchat_editgroup_photo": "Foto",
         "darkchat_editgroup_save": "Speichern",
         "darkchat_editgroup_cancel": "Abbrechen",
-        darkchat_editprofile_title": "Profil bearbeiten",
+        "darkchat_editprofile_title": "Profil bearbeiten",
         "darkchat_editprofile_name": "Name",
         "darkchat_editprofile_photo": "Foto",
         "darkchat_editprofile_save": "Speichern",
@@ -585,8 +585,8 @@ Locales["de"] = {
         //////////////////
         "placeholder": {
             "nickname": "Nickname",
-            "E-Mail": "E-Mail",
-            "Passwort": "Passwort",
+            "email": "E-Mail",
+            "password": "Passwort",
             "code": "Code",
             "new_password": "Neues Passwort",
             "repeat_password": "Passwort wiederholen",
