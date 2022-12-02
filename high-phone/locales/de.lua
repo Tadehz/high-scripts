@@ -3,8 +3,8 @@ Config.Languages["de"] = {
         -- Bank
         ["selftransfer"] = "Du kannst kein Geld an dich selbst überweisen!",
         ["selfrequest"] = "Du kannst kein Geld von dir selbst anfordern!",
-        ["receivedmoney"] = "Du hast <strong>${amount}</strong> von der ID <strong>{senderId}</strong> erhalten! Grund: <strong>{Grund}</strong>",
-        ["requestedmoney"] = "<strong>{requesterName} [{requesterId}]</strong> hat für <strong>${amount}</strong> angefordert! Grund: <strong>{Grund}</strong>",
+        ["receivedmoney"] = "Du hast <strong>${amount}</strong> von der ID <strong>{senderId}</strong> erhalten! Grund: <strong>{reason}</strong>",
+        ["requestedmoney"] = "<strong>{requesterName} [{requesterId}]</strong> hat für <strong>${amount}</strong> angefordert! Grund: <strong>{reason}</strong>",
         ["receivernonexistant"] = "Der Benutzer mit dieser ID existiert nicht!",
         ["notenoughmoney"] = "Du hast nicht genug Geld, um diese Transaktion durchzuführen!",
         ["requestdoesntexist"] = "Die Anfrage existiert nicht!",
