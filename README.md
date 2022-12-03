@@ -62,3 +62,5 @@ git push
 ## Contributors
 
 :fr: Thanks to [Eznoff](https://github.com/Eznoff) for the French (FR) translation.
+:de: Thanks to [GhostLegionRP](https://github.com/GhostLegionRP) for the Deutsch (DE) translation.
+:cz: Thanks to [IceCubePiso](https://github.com/icecubepiso) for the Czech (CZ) translation.
