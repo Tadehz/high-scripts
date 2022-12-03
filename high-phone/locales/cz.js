@@ -1,4 +1,4 @@
-Locales["cs"] = {
+Locales["cz"] = {
     /////////////
     // General //
     /////////////
