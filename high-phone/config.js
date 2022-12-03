@@ -1,7 +1,7 @@
 Config = {};
 Locales = {};
 // Do not touch above code!
-// You can choose from following languages: "en", "fr", "cs"
+// You can choose from the following languages: "en", "fr", "cz"
 Config.Language = "en"
 
 Config.TimeUpdateInterval = 1000 // In miliseconds
