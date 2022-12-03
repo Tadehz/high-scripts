@@ -1,4 +1,4 @@
-Config.Languages["cs"] = {
+Config.Languages["cz"] = {
     ["notifications"] = {
         -- Bank
         ["selftransfer"] = "Nelze posílat peníze sám sobě!",
