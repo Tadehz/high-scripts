@@ -65,4 +65,4 @@ git push
 
 :de: Thanks to [GhostLegionRP](https://github.com/GhostLegionRP) for the Deutsch (DE) translation.
 
-:cz: Thanks to [IceCubePiso](https://github.com/icecubepiso) for the Czech (CZ) translation.
+🇨🇿 Thanks to [IceCubePiso](https://github.com/icecubepiso) for the Czech (CZ) translation.
