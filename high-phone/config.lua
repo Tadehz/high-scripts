@@ -3,6 +3,7 @@ Config = {}
 Config.Languages = {}
 
 -- Main config starts here!
+-- Supported language: "en", "cs", "fr"
 Config.Language = "en"
 Config.PhoneModel = "prop_npc_phone_02"
 
