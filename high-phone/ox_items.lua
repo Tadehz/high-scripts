@@ -6,8 +6,7 @@
 	client = {
 		export = "high_phone.openPhone",
 		remove = function(total)
-			local isOpen = exports.high_phone:isOpen()
-			if total < 1 and not isOpen then
+			if total < 1 then
 				exports.high_phone:closePhone()
 			end
 		end,
