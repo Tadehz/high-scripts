@@ -250,6 +250,7 @@ Locales["de"] = {
         "resettimer": "Du hast bereits einen Reset-Code an diese E-Mail gesendet! Bitte warte {0} Sekunden, bevor du einen neuen Code sendest!", // {0} ist die verbleibende Wartezeit in Sekunden.
         "passwordnotmatching": "Das wiederholte Passwort stimmt nicht mit dem neuen Passwort überein!",
         "resetsuccess": "Das Passwort deines Kontos wurde erfolgreich zurückgesetzt! Du kannst dich jetzt anmelden.",
+        "twitteruserbanned": "{0} has been banned from Twitter until {1}", // {0} is the user nickname, {1} is the date
         // Bank-App
         "ibancopied": "Deine IBAN-Nummer wurde kopiert!",
         "idnotfilled": "Du musst die Spieler-ID ausfüllen!",

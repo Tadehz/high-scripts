@@ -3,7 +3,7 @@ Config = {}
 Config.Languages = {}
 
 -- Main config starts here!
--- You can choose from the following languages: "en", "fr", "cz"
+-- You can choose from the following languages: "en", "fr", "cz", "de"
 Config.Language = "en"
 Config.PhoneModel = "prop_npc_phone_02"
 
@@ -110,9 +110,6 @@ Config.TwitterRanks = {
 Config.AdsLimit = 20 -- How many ads to load from the database and display on the ads app
 
 Config.ShowContactStatuses = true -- Enable showing other contacts' statuses?
-Config.ContactCallsLimit = 20 -- How many old calls with a contact to load to show on contact info.
-
-Config.CallsLimit = 30 -- How many old calls in phone app to load.
 
 --[[ THIS WORKS SIMPLE, WHEN YOU CALL ONE OF THE QUICK CONTACTS EVERYONE WITH THE JOB ON DUTY/ON SERVICE WILL RECEIVE THE CALL AND ONE OF THEM WILL BE ABLE TO PICK IT UP.
    SAME GOES FOR MESSAGES, EVERYONE WILL RECEIVE THE MESSAGE THAT HAVE THE JOB OF THE CONTACT THAT YOU'VE SENT THE MESSAGE TO.
@@ -128,7 +125,7 @@ Config.JobContacts = {
         attachments = false, -- Can you send images as attachments to this contact?
         displayStatus = true, -- Display the online status for this contact when there are players in the job online?
         -- UNCOMMENT (REMOVE THE --[[ AND ]]) THE CODE BELOW IF YOU USE SUCH SCRIPTS AS CD_DISPATCH OR CORE_DISPATCH
-        --[[messageCallback = function(server, content)
+        --[[messageCallback = function(server, content, senderNumber)
             -- Add shared (server & client) code here. Argument 'server' is the IsDuplicityVersion function's returned value (shows if the environment is server-side or client-side)
             if(not server) then
                 -- Do something here if it's the client side.
@@ -146,7 +143,7 @@ Config.JobContacts = {
         attachments = false, -- Can you send images as attachments to this contact?
         displayStatus = true, -- Display the online status for this contact when there are players in the job online?
         -- UNCOMMENT (REMOVE THE --[[ AND ]]) THE CODE BELOW IF YOU USE SUCH SCRIPTS AS CD_DISPATCH OR CORE_DISPATCH
-        --[[messageCallback = function(server, content)
+        --[[messageCallback = function(server, content, senderNumber)
             -- Add shared (server & client) code here. Argument 'server' is the IsDuplicityVersion function's returned value (shows if the environment is server-side or client-side)
             if(not server) then
                 -- Do something here if it's the client side.
@@ -159,6 +156,7 @@ Config.JobContacts = {
 
 --[[ ADVERTISMENTS APP CATEGORIES - YOU CAN ADD AS MANY CATEGORIES AS YOU WANT HERE! 
     ALSO IF YOU'RE ADDING MORE CATEGORIES, MAKE SURE THESE NUMBERS IN THE BRACKETS ARE IN AN ASCENDING ORDER]]
+Config.AdminAllCategories = false
 Config.AdsCategories = {
     -- Default category [invisible, as its the main category]
     ["default"] = { -- DO NOT CHANGE THIS CATEGORY JOB NAME, THIS IS THE DEFAULT/MAIN CATEGORY

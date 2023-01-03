@@ -264,7 +264,7 @@ Config.CustomCallbacks = {
         
         for i, v in pairs(Config.JobContacts) do
             if(number == v.number) then
-                v.messageCallback(false, data.content)
+                v.messageCallback(false, data.content, phoneNumber)
                 break
             end
         end

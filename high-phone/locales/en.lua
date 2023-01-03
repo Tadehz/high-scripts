@@ -67,7 +67,7 @@ Config.Languages["en"] = {
         ["title"] = "🚩 Tweet reported!",
         ["fields"] = {
             {["name"] = "Tweet data", ["value"] = "ID: `{tweetId}`\nTitle:`{tweetTitle}`\nContent: `{tweetContent}`"},
-            {["name"] = "Tweeter data", ["value"] = "Email: `{tweeterEmail}`\nNickname: `{tweeterNickname}`"},
+            {["name"] = "Tweeter data", ["value"] = "ID: `{tweeterId}`\nNickname: `{tweeterNickname}`"},
             {["name"] = "Reporter data", ["value"] = "Identifier: `{reporterIdentifier}`\nEmail: `{reporterEmail}`\nNickname: `{reporterNickname}`\nID: `{reporterId}`"}
         },
         ["image"] = {
@@ -82,7 +82,7 @@ Config.Languages["en"] = {
     ["userreportwebhook"] = {
         ["title"] = "🚩 Twitter user reported!",
         ["fields"] = {
-            {["name"] = "User data", ["value"] = "Owner: `{userIdentifier}`\nEmail: `{userEmail}`\nNickname: `{userNickname}`"},
+            {["name"] = "User data", ["value"] = "ID: `{userId}`\nOwner: `{userIdentifier}`\nEmail: `{userEmail}`\nNickname: `{userNickname}`"},
             {["name"] = "Reporter data", ["value"] = "Identifier: `{reporterIdentifier}`\nEmail: `{reporterEmail}`\nNickname: `{reporterNickname}`\nID: `{reporterId}`"}
         },
         ["color"] = 47871,

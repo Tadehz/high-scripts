@@ -38,24 +38,14 @@ Config.PhoneNumberColumn = "phone" -- With our phone this is by default "phone",
 Config.EnableBankNumbersGeneration = true -- Set to false if you're using another banking script that generates the iban numbers
 Config.BankNumberColumn = "iban" -- If you have old bank account numbers and want to keep them, change this.
 
--- If you know LUA, you can make your own number/bank number generation format, it's not that hard even if you don't know LUA with a few google searches.
-Config.GenerateRandomNumber = function(source)
-  math.randomseed(source + os.time()) -- Do not touch this
-
-  -- You can change the number format below!
-  local number = math.random(111, 999) .. "-" .. math.random(1111, 9999)
-
-  return number
-end
-
-Config.GenerateRandomIBAN = function(source)
-  math.randomseed(source + os.time()) -- Do not touch this
-
-  -- You can change the iban format below!
-  local iban = "" .. math.random(111111, 999999) .. ""
-
-  return iban
-end
+ -- You can define your own characters with your own number ranges that can be used in the formats below.
+Config.NumberRanges = {
+  ["X"] = {1, 9},
+  ["x"] = {0, 9}
+}
+Config.PhoneNumberFormat = "Xxx-Xxxx" -- X's are the randomly generated numbers, you can add your own preset numbers into the format, e.g. "420-Xxxx"
+Config.BankNumberFormat = "Xxxxxx" -- X's are the randomly generated numbers, you can add your own preset numbers into the format, e.g. "420xxx"
+-- The difference between the lowercase x and the uppercase X is that the uppercase indicates numbers varying from 1 to 9 and the lowercase indicates numbers from 0 to 9, you shouldn't use the lowercase x in the beginning of a number as it could COULD look like '015-1511', unless you want it to start with a zero.
 
 -- Change this function only if you know what you're doing!
 Config.SendWebhook = function(url, embeds)

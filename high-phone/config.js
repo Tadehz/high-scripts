@@ -1,7 +1,7 @@
 Config = {};
 Locales = {};
 // Do not touch above code!
-// You can choose from the following languages: "en", "fr", "cz"
+// You can choose from the following languages: "en", "fr", "cz", "de"
 Config.Language = "en"
 
 Config.TimeUpdateInterval = 1000 // In miliseconds
@@ -32,7 +32,6 @@ Config.AirdropImageCooldown = 2000 // in ms, 1 second = 1000 ms
 Config.ShareContactCooldown = 2000 // in ms, 1 second = 1000 ms
 
 // Music app
-Config.MaxPrimarySongs = 10 // How many songs should be loaded at the top of the Music app.
 Config.MaxShownRecentSongs = 4 // How many recently played songs can be shown?
 
 // Messages app

@@ -250,6 +250,7 @@ Locales["en"] = {
         "resettimer": "You've already sent a reset code to this email! Please wait {0} seconds before sending a new code!", // {0} is the left seconds to wait.
         "passwordnotmatching": "Repeat password does not match the new password!",
         "resetsuccess": "Successfully reset your account's password! You can now login.",
+        "twitteruserbanned": "{0} has been banned from Twitter until {1}", // {0} is the user nickname, {1} is the date
         // Bank app
         "ibancopied": "Your IBAN number has been copied!",
         "idnotfilled": "You need to fill in the player ID!",
@@ -534,7 +535,7 @@ Locales["en"] = {
         "all_calls": "All",
         "missed_calls": "Missed",
         "dial_title": "Dial number",
-        "clear_all_calls": "Clear",
+        "clear_all_calls": "Clear all",
         // Settings
         "settings_title": "Settings",
         "backgrounds_title": "Backgrounds",

@@ -250,6 +250,7 @@ Locales["cz"] = {
         "resettimer": "Na tento e-mail jste již zaslali kód pro resetování! Před odesláním nového kódu vyčkejte {0} sekund!", // {0} is the left seconds to wait.
         "passwordnotmatching": "Opakované heslo neodpovídá novému heslu!",
         "resetsuccess": "Úspěšně resetováno heslo vašeho účtu! Nyní se můžete přihlásit.",
+        "twitteruserbanned": "{0} has been banned from Twitter until {1}", // {0} is the user nickname, {1} is the date
         // Bank app
         "ibancopied": "Váš IBAN byl zkopírován!",
         "idnotfilled": "Musíte vyplnit ID hráče!",
