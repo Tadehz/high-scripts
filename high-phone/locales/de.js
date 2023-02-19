@@ -54,11 +54,11 @@ Locales["de"] = {
     "calling": "Anrufen", // "Calling",
     "connecting": "Verbinden...",
     "user_unavailable": "Benutzer nicht verfügbar",
+    "no_units": "No Available Units",
     "user_busy": "Benutzer beschäftigt",
     "callended": "Aufgelegt",
     "cancelled": "Abgebrochen",
     "privatenumber": "Privatnummer",
-    "missed_call": "Verpasster Anruf von <strong>{0}</strong>", // {0} ist die Nummer/der Name des Anrufers
     // Nachrichten-App
     "member_you": "(Du)",
     "person": "Person",
@@ -69,9 +69,10 @@ Locales["de"] = {
     "attachment": "Anhang #{0}", // {0} ist die Anhang-ID
     "image": "Bild #{0}", // {0} ist die ID des Anhangs (Bild)
     "attached_image": "(angehängtes Bild)",
+    "not_delivered": "Not Delivered",
+    "message_failure": "Message Send Failure",
     "left_contacts": "Du kannst {0} weitere Kontakte auswählen", // {0} ist die Anzahl der verbleibenden Kontakte
     "max_contacts": "Du kannst insgesamt nur {0} Kontakte auswählen!", // {0} ist die zulässige Anzahl der Kontakte
-    "new_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} ist der Name/die Nummer des Absenders, {1} ist der Gruppenname, {2} ist der Inhalt
     // Bank-App
     "iban": "IBAN: {0}", // {0} ist die Kontonummer des Spielers
     "cardname": "GHOSTBANK",
@@ -80,7 +81,6 @@ Locales["de"] = {
     "requestdescription": "Anfrage von <strong>{0} [{1}]</strong><br>Grund: <strong>{2}</strong>", // {0} ist der Spielername, {1} ist die Spieler-ID, {2} ist der Zweck (Grund)
     // Darkchat-App
     "dark_you": "(Du)",
-    "new_dark_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} ist der Absendername/die Nummer, {1} ist der Gruppenname, {2} ist der Inhalt
     // Einstellungen-App
     "playerinfo": "<strong>{0}</strong><br>ID: <strong>{1}</strong>", // {0} ist die Spielernummer, {1} ist die Spieler-ID
     // Noten-App
@@ -97,6 +97,7 @@ Locales["de"] = {
     "online": "Online",
     "offline": "Offline",
     "invisible": "Unsichtbar",
+    "copy_song": "Copy song link",
     "save_song": "In Wiedergabeliste speichern",
     "remove_song": "Aus der Wiedergabeliste entfernen",
     "delete_playlist": "Wiedergabeliste löschen",
@@ -105,11 +106,15 @@ Locales["de"] = {
     "report": "Bericht",
     "delete": "Löschen",
     "copy_message": "Nachricht kopieren",
+    "copy_link": "Copy Link",
     "manage_group": "Gruppe verwalten",
     "copy": "Kopieren",
     "reply": "Antworten",
+    "viewcontact": "View Contact",
     "addcontact": "Kontakt hinzufügen",
     "call": "Anrufen",
+    "block_number": "Block Number",
+    "unblock_number": "Unblock Number",
     "openchat": "Chat öffnen",
     "mutechat": "Chat stummschalten",
     "unmutechat": "Unmute Chat",
@@ -180,13 +185,14 @@ Locales["de"] = {
         "usernotavailable": "Benutzer ist nicht verfügbar!",
         "cannotcallyourself": "Du kannst dich nicht selbst anrufen!",
         "cannotcallnumber": "Du kannst diese Nummer nicht anrufen!",
-        "bereits im Gespräch": "Du befindest dich bereits in einem Gespräch!",
+        "alreadyincall": "Du befindest dich bereits in einem Gespräch!",
+        "missed_call": "Verpasster Anruf von <strong>{0}</strong>", // {0} ist die Nummer/der Name des Anrufers
         // Mail-App
         "mailsettingssaved": "Die Einstellungen wurden gespeichert!",
         "mailnametooshort": "Der Name ist zu kurz!",
         "mailaddresstooshort": "Die E-Mail-Adresse ist zu kurz!",
         "mailpasswordtooshort": "Das Passwort ist zu kurz!",
-        "mailnameotfilled": "Du musst deinen Namen ausfüllen!",
+        "mailnamenotfilled": "Du musst deinen Namen ausfüllen!",
         "mailaddressnotfilled": "Du musst deine E-Mail-Adresse ausfüllen!",
         "mailpasswordnotfilled": "Du musst dein Passwort eingeben!",
         "airplanecantmail": "Bei eingeschaltetem Flugzeugmodus können keine Mails verschickt werden!",
@@ -207,25 +213,27 @@ Locales["de"] = {
         "cantmessageprivatenumber": "Kann keine Nachrichten an eine Privatnummer senden!",
         "toomanyattachments": "Du kannst nur {0} Bilder anhängen!", // {0} ist das konfigurierte Limit für Anhänge
         "selectgroupmembers": "Du musst mindestens 1 Person auswählen!",
-        "groupnameotfilled": "Du musst den Gruppennamen ausfüllen!",
+        "groupnamenotfilled": "Du musst den Gruppennamen ausfüllen!",
         "namenotfilled": "Du musst den Namen ausfüllen!",
         "max_contacts": "Du kannst insgesamt nur {0} Kontakte auswählen!", // {0} ist die zulässige Anzahl der Kontakte
         "cantcreategroupsoff": "Es können keine Gruppen erstellt werden, wenn die Gruppenbenachrichtigung ausgeschaltet ist!",
         "cantopengroupsoff": "Gruppen können nicht geöffnet werden, wenn der Gruppennachrichtendienst ausgeschaltet ist!",
         "addedtogroup": "Du wurdest zu einer Gruppe namens <strong>{0}</strong> hinzugefügt!",
         "kickedperson": "<strong>{0}</strong> wurde aus der Gruppe gekickt!", // {0} ist der Name/die Nummer der gekickten Person
+        "new_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} ist der Name/die Nummer des Absenders, {1} ist der Gruppenname, {2} ist der Inhalt
         // Dunkle Chat-App
         "airplanecantjoindarkgroups": "Kann Gruppen mit eingeschaltetem Flugzeugmodus nicht beitreten!",
         "airplanecantcreatedarkgroup": "Kann keine Gruppen mit eingeschaltetem Flugzeugmodus erstellen!",
         "airplanecanteditdarkgroup": "Gruppen können nicht bearbeitet werden, wenn der Flugzeugmodus eingeschaltet ist!",
-        "darknicknameotfilled": "Du musst deinen Spitznamen ausfüllen!",
+        "darknicknamenotfilled": "Du musst deinen Spitznamen ausfüllen!",
         "darkgroupmembersoutofrange": "Gruppenmitglieder außerhalb der Reichweite!",
-        "darkgroupnameotfilled": "Du musst den Gruppennamen ausfüllen!",
+        "darkgroupnamenotfilled": "Du musst den Gruppennamen ausfüllen!",
         "darkgroupinvitetooshort": "Der Einladungscode ist zu kurz!",
         "copiedinvite": "Der Einladungscode wurde in die Zwischenablage kopiert!",
         "darkinvitecodenotfilled": "Du musst den Einladungscode ausfüllen!",
         "kickedmember": "<strong>{0}</strong> wurde aus der Gruppe gekickt!", // {0} ist der Name des gekickten Mitglieds
         "bannedmember": "<strong>{0}</strong> wurde aus der Gruppe verbannt!", // {0} ist der Name des verbannten Mitglieds
+        "new_dark_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} ist der Absendername/die Nummer, {1} ist der Gruppenname, {2} ist der Inhalt
         // Musik-App
         "failedtoplay": "Dieses Lied konnte nicht abgespielt werden!",
         "noplaylists": "Du hast keine einzige Wiedergabeliste!",
@@ -452,7 +460,7 @@ Locales["de"] = {
         "mail_newmail_recipients": "Empfänger",
         "mail_newmail_subject": "Betreff",
         "mail_newmail_text": "Text",
-        "mail_replymail_title": `Antwort auf <span style="font-family: PoppinsBolder;">{0}</span>`,
+        "mail_replymail_title": `Antwort auf <strong>{0}</strong>`,
         "reply_all": "Antwort an alle",
         // Bank
         "bank_title": "GHOSTBANK",

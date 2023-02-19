@@ -49,7 +49,7 @@ Config.BankNumberFormat = "Xxxxxx" -- X's are the randomly generated numbers, yo
 
 -- Change this function only if you know what you're doing!
 Config.SendWebhook = function(url, embeds)
-  PerformHttpRequest(url, function(err, text, headers) end, 'POST', json.encode({username = "", embeds = embeds}), { ['Content-Type'] = 'application/json' })
+  PerformHttpRequest(url, function(err, text, headers) end, 'POST', json.encode({embeds = embeds}), { ['Content-Type'] = 'application/json' })
 end
 
 -- Admin groups/aces, that can use /settwitterrank command, and in the future maybe other admin commands

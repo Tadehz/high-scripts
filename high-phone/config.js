@@ -8,6 +8,7 @@ Config.TimeUpdateInterval = 1000 // In miliseconds
 Config.TimeType = "real" // Change to "in-game" if you want in-game time displayed on the phone.
 Config.TimeFormat = 1 // Put 1 for 12 hour time format. 2 for 24 hour time format.
 Config.DateFormat = "%y-%m-%d" // Date format, %y is year, %m is month, %d is day.
+Config.CallDelay = 3 // After how much time to actually ring the other person's phone? This also delays things such as user busy, etc, just like with real phones. If you want to disable this, just put the delay on 0.
 Config.CallingTime = 30 // How much time to dial until the call self cancels.
 Config.SaveUploadedPhotos = true // Save uploaded photos to the database or not? [Non-uploaded photos will not be saved either way!]
 Config.OffNotificationPosition = "bottom-right" // The position of big notifications when the phone is closed. Available: top-right, top-left, bottom-right, bottom-left
@@ -18,6 +19,9 @@ Config.EnableOutdatedWarning = true; // Set to false if you want to disable the 
 
 // Dark chat app
 Config.DarkMemberLimit = 1000 // A limit for members able to join the group. [Can be set up in the group creation screen]
+Config.AttachmentLimit = 2 // Attachments in messages limit
+Config.DarkMessageSeperating = 20 // In minutes, after how many minutes a new message is seperated by a timestamp above in a chat?
+Config.DarkMessageLazyLoad = 20 // How many messages to load when a person is scrolling up in the darkchat app?
 
 // Bank app
 Config.Currency = "€" // Currency symbol used in bank app, etc.
@@ -38,6 +42,8 @@ Config.MaxShownRecentSongs = 4 // How many recently played songs can be shown?
 Config.LocationCooldown = 2000 // in ms, 1 second = 1000 ms
 Config.AttachmentLimit = 2 // Attachments in messages limit
 Config.MaxGroupMembers = 20 // Max contacts that can be added into a group
+Config.MessageSeperating = 20 // In minutes, after how many minutes a new message is seperated by a timestamp above in a chat?
+Config.MessageLazyLoad = 20 // How many messages to load when a person is scrolling up in the messages app?
 
 // Phone app - dialing screen configuration
 Config.AutoSymbol = true // Automatically put a symbol to format the phone number or not?
@@ -214,6 +220,7 @@ Config.Applications = {
         icon: "fas fa-comment",
         icon_color: "#fff",
         icon_image: "", 
+        icon_size: "1.5vw",
         background: ["#67ff81", "#01b41f"],
         bottom: true,
         downloadable: false,
@@ -269,6 +276,7 @@ Config.Applications = {
         icon: "fas fa-university",
         icon_color: "#fff",
         icon_image: "", 
+        icon_size: "1.4vw",
         background: "rgba(151, 197, 229)",
         bottom: false,
         downloadable: false,
@@ -296,7 +304,7 @@ Config.Applications = {
         icon: "fas fa-envelope",
         icon_color: "#fff",
         icon_image: "", 
-        background: ["#388bff", "#4fc1ff"],
+        background: ["#388bff", "#4fc1ff", "bottom"],
         bottom: false,
         downloadable: true,
         downloadTime: 2000, // in miliseconds, 1000 ms = 1 second
@@ -340,7 +348,8 @@ Config.Applications = {
         icon: "fas fa-camera",
         icon_color: "#2a2a2a",
         icon_image: "", 
-        background: ["#dedede", "#919191"],
+        icon_size: "1.4vw",
+        background: ["#dedede", "#919191", "bottom"],
         bottom: false,
         downloadable: false,
         notifications: {
@@ -383,7 +392,7 @@ Config.Applications = {
         icon: "fas fa-user-secret",
         icon_color: "#f1f1f1",
         icon_image: "",
-        icon_size: "1.1vw",
+        icon_size: "1.2vw",
         background: "#424242",
         bottom: false,
         downloadable: true,

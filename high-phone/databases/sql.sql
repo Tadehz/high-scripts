@@ -17,18 +17,11 @@ CREATE TABLE IF NOT EXISTS `phone_chats` (
   `owner` varchar(255) DEFAULT NULL,
   `number` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL DEFAULT 'Unknown',
-  `settings` text DEFAULT NULL,
-  `lastOpened` bigint(20) DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE IF NOT EXISTS `phone_groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `owner` varchar(255) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
   `photo` varchar(512) NOT NULL DEFAULT '',
   `members` mediumtext DEFAULT NULL,
+  `settings` text DEFAULT NULL,
+  `lastOpened` bigint(20) DEFAULT 0,
+  `lastMessage` bigint(20) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
@@ -42,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `phone_darkgroups` (
   `maxmembers` int(11) DEFAULT 0,
   `members` mediumtext DEFAULT NULL,
   `bannedmembers` mediumtext DEFAULT NULL,
+  `lastMessage` bigint(20) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;

@@ -54,11 +54,11 @@ Locales["cz"] = {
     "calling": "Volá ti..",
     "connecting": "Připojuji..",
     "user_unavailable": "Uživatel je nedostupný",
+    "no_units": "No Available Units",
     "user_busy": "Uživatel je zaneprázdněny",
     "callended": "Hovor ukončen",
     "cancelled": "Zrušeno",
     "privatenumber": "Soukromé číslo",
-    "missed_call": "Zmeškaný hovor od <strong>{0}</strong>", // {0} is the caller number/name
     // Message app
     "member_you": "(Ty)",
     "person": "Osoba",
@@ -69,9 +69,10 @@ Locales["cz"] = {
     "attachment": "Příloha #{0}", // {0} is the attachment ID
     "image": "Obrázek #{0}", // {0} is the attachment (image) ID
     "attached_image": "(Přiložený obrázek)",
+    "not_delivered": "Not Delivered",
+    "message_failure": "Message Send Failure",
     "left_contacts": "Můžete vybrat další {0} kontakty.", // {0} is the remaining contact count
     "max_contacts": "Celkem můžete vybrat pouze {0} kontaktů!", // {0} is the allowed contact count
-    "new_group_message": "<strong>{0}</strong> v <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Bank app
     "iban": "IBAN: {0}", // {0} is player bank account number
     "cardname": "HIGHBANK",
@@ -80,7 +81,6 @@ Locales["cz"] = {
     "requestdescription": "Žádost od <strong>{0} [{1}]</strong><br>Důvod: <strong>{2}</strong>", // {0} is player name, {1} is player ID, {2} is purpose (reason)
     // Darkchat app
     "dark_you": "(Ty)",
-    "new_dark_group_message": "<strong>{0}</strong> v <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Settings app
     "playerinfo": "<strong>{0}</strong><br>ID: <strong>{1}</strong>", // {0} is player number, {1} is player ID
     // Notes app
@@ -97,6 +97,7 @@ Locales["cz"] = {
     "online": "Online",
     "offline": "Offline",
     "invisible": "Neviditelný",
+    "copy_song": "Copy song link",
     "save_song": "Uložit do playlistu",
     "remove_song": "Odstranit z playlistu",
     "delete_playlist": "Smazat playlist",
@@ -105,11 +106,15 @@ Locales["cz"] = {
     "report": "Nahlásit",
     "delete": "Smazat",
     "copy_message": "Zkopírovat zprávu",
+    "copy_link": "Copy Link",
     "manage_group": "Spravovat skupinu",
     "copy": "Zkopírovat",
     "reply": "Odpovědět",
+    "viewcontact": "View Contact",
     "addcontact": "Přidat kontakt",
     "call": "Zavolat",
+    "block_number": "Block Number",
+    "unblock_number": "Unblock Number",
     "openchat": "Otevřít Chat",
     "mutechat": "Vypnout zvuk",
     "unmutechat": "Zapnout zvuk",
@@ -181,6 +186,7 @@ Locales["cz"] = {
         "cannotcallyourself": "Nemůžete volat sami sobě!",
         "cannotcallnumber": "Na toto číslo nemůžete volat!",
         "alreadyincall": "Již se účastníte hovoru!",
+        "missed_call": "Zmeškaný hovor od <strong>{0}</strong>", // {0} is the caller number/name
         // Mail app
         "mailsettingssaved": "Nastavení bylo uloženo!",
         "mailnametooshort": "Jméno je příliš krátké!",
@@ -214,6 +220,7 @@ Locales["cz"] = {
         "cantopengroupsoff": "Nelze otevřít skupiny s vypnutým skupinovým zasíláním zpráv!",
         "addedtogroup": "Byli jste přidáni do skupiny s názvem <strong>{0}</strong>!",
         "kickedperson": "<strong>{0}</strong> byl vyloučen ze skupiny!", // {0} is the kicked person name/number
+        "new_group_message": "<strong>{0}</strong> v <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Dark chat app
         "airplanecantjoindarkgroups": "Nelze se připojit ke skupinám se zapnutým režimem Letadlo!",
         "airplanecantcreatedarkgroup": "Nelze vytvářet skupiny se zapnutým režimem Letadlo!",
@@ -226,6 +233,7 @@ Locales["cz"] = {
         "darkinvitecodenotfilled": "Musíte vyplnit zvací kód!",
         "kickedmember": "<strong>{0}</strong> byl vyloučen ze skupiny!", // {0} is the kicked member name
         "bannedmember": "<strong>{0}</strong> byl vyloučen ze skupiny!", // {0} is the kicked member name
+        "new_dark_group_message": "<strong>{0}</strong> v <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Music app
         "failedtoplay": "Tuto skladbu se nepodařilo přehrát!",
         "noplaylists": "Nemáte jediný playlist!",
@@ -452,7 +460,7 @@ Locales["cz"] = {
         "mail_newmail_recipients": "Příjemcis",
         "mail_newmail_subject": "Předmět",
         "mail_newmail_text": "Text",
-        "mail_replymail_title": `Odpovídání na <span style="font-family: PoppinsBolder;">{0}</span>`,
+        "mail_replymail_title": `Odpovídání na <strong>{0}</strong>`,
         "reply_all": "Odpovědět všem",
         // Bank
         "bank_title": "HIGHBANK",

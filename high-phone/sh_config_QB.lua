@@ -13,12 +13,21 @@ if(IsDuplicityVersion()) then
         local src = source
         TriggerEvent("high_phone:playerDropped", src)
     end)
+
+    RegisterNetEvent("hospital:server:SetLaststandStatus", function(boolean)
+        if(boolean) then
+            return TriggerClientEvent("high_phone:playerDeath", source)
+        end
+        TriggerClientEvent("high_phone:playerSpawned", source)
+    end)
 end
 
 Config.Events = {
     playerLoaded = "high_phone:playerLoaded", -- player loaded server-side event, requires a player source as the 1st argument.
     playerDropped = "high_phone:playerDropped", -- player disconnected server-side event, requires a player source as the 1st argument.
-    updateJob = "QBCore:Server:OnJobUpdate" -- player job updated server-side event, requires a player source as the 1st argument.
+    updateJob = "QBCore:Server:OnJobUpdate", -- player job updated server-side event, requires a player source as the 1st argument.
+    playerDeath = "high_phone:playerDeath", -- player death client-side event, no required arguments.
+    playerSpawned = "high_phone:playerSpawned" -- player spawned client-side event, no required arguments, opposite of playerDeath event to re-enable the phone.
 }
 
 Config.PlayersTable = "players" -- Database players table.
@@ -274,10 +283,10 @@ Config.CustomCallbacks = {
     -- Phone app
     ["callNumber"] = function(data, cb)
         Config.FrameworkFunctions.triggerCallback("high_phone:callNumber", function(response)
-            cb(response) -- If response is "SUCCESS", the call screen will slide out. IMPORTANT TO CALLBACK SOMETHING!
-            if(response == "SUCCESS") then
-                DoPhoneAnimation('cellphone_text_to_call') -- Global function, play any animation from library cellphone@
-                onCall = true -- Global variable, set it to true if in a call.
+            cb(response) -- Must callback "SUCCESS"
+            if(response ~= "SUCCESS") then -- In case calling fails, cancel the animations, etc.
+                removeFromCall() -- Using global function to remove from call, do not remove this
+                currentCallData = {} -- Using global function to clear the call from cache, do not remove this
             end
         end, data.number, data.privatenumber)
     end,

@@ -24,9 +24,11 @@ Config.Events = {
     playerLoaded = "esx:playerLoaded", -- player loaded server-side event, requires a player source as the 1st argument.
     playerDropped = "esx:playerDropped", -- player disconnected server-side event, requires a player source as the 1st argument.
     updateJob = "esx:setJob", -- player job updated server-side event, requires a player source as the 1st argument.
+    playerDeath = "esx:onPlayerDeath", -- player death client-side event, no required arguments.
+    playerSpawned = "playerSpawned", -- player spawned client-side event, no required arguments, opposite of playerDeath event to re-enable the phone.
     -- NOTE THAT 'high_phone:addInventoryItem' AND 'high_phone:removeInventoryItem' REQUIRE DIFFERENT 2ND ARGUMENTS, THESE REQUIRE THE AMOUNT OF ITEM REMOVED/ADDED, UNLIKE ESX ALREADY GIVES THE AMOUNT OF ITEM THE PLAYER HAS AFTER REMOVING/ADDING IT.
     addItem = "esx:addInventoryItem", -- item added to inventory client-side event, requires the item name as the 1st argument and the count of the item in player's inventory AFTER adding as the 2nd argument.
-    removeItem = "esx:removeInventoryItem" -- item removed from inventory client-side event, requires the item name as the 1st argument and the count of the item in player's inventory AFTER removing as the 2nd argument.
+    removeItem = "esx:removeInventoryItem" -- item removed from inventory client-side event, requires the item name as the 1st argument and the count of the item in player's inventory AFTER removing as the 2nd argument
 }
 
 Config.PlayersTable = "users" -- Database players table.
@@ -284,10 +286,10 @@ Config.CustomCallbacks = {
     -- Phone app
     ["callNumber"] = function(data, cb)
         Config.FrameworkFunctions.triggerCallback("high_phone:callNumber", function(response)
-            cb(response) -- If response is "SUCCESS", the call screen will slide out. IMPORTANT TO CALLBACK SOMETHING!
-            if(response == "SUCCESS") then
-                DoPhoneAnimation('cellphone_text_to_call') -- Global function, play any animation from library cellphone@
-                onCall = true -- Global variable, set it to true if in a call.
+            cb(response) -- Must callback "SUCCESS"
+            if(response ~= "SUCCESS") then -- In case calling fails, cancel the animations, etc.
+                removeFromCall() -- Using global function to remove from call, do not remove this
+                currentCallData = {} -- Using global function to clear the call from cache, do not remove this
             end
         end, data.number, data.privatenumber)
     end,

@@ -1,0 +1,3 @@
+# Updating your database from version 2.0.x to 2.1.0 if you've had it installed before.
+
+Execute the SQL file by choice depending on your framework. If you've changed any column names in the 'sv_config.lua' and 'sh_config.lua' configuration files, you must replace these in the 'x.sql' files according to your changes in the config files. That is pretty easy, e.g. if you've changed the phone number column name from the default 'phone' to a 'phone_number', open your chosen framework's SQL file in this folder and replace 'phone' with 'phone_number' in there. Do that with other columns, such as identifier in the 'players' or 'users' table, etc.

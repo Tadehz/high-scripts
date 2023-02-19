@@ -54,11 +54,11 @@ Locales["en"] = {
     "calling": "Calling..",
     "connecting": "Connecting..",
     "user_unavailable": "User Unavailable",
+    "no_units": "No Available Units",
     "user_busy": "User Busy",
     "callended": "Call Ended",
     "cancelled": "Cancelled",
     "privatenumber": "Private Number",
-    "missed_call": "Missed call from <strong>{0}</strong>", // {0} is the caller number/name
     // Message app
     "member_you": "(You)",
     "person": "Person",
@@ -69,9 +69,10 @@ Locales["en"] = {
     "attachment": "Attachment #{0}", // {0} is the attachment ID
     "image": "Image #{0}", // {0} is the attachment (image) ID
     "attached_image": "(Attached image)",
+    "not_delivered": "Not Delivered",
+    "message_failure": "Message Send Failure",
     "left_contacts": "You can select {0} more contacts", // {0} is the remaining contact count
     "max_contacts": "You can only select {0} contacts in total!", // {0} is the allowed contact count
-    "new_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Bank app
     "iban": "IBAN: {0}", // {0} is player bank account number
     "cardname": "HIGHBANK",
@@ -80,7 +81,6 @@ Locales["en"] = {
     "requestdescription": "Request from <strong>{0} [{1}]</strong><br>Reason: <strong>{2}</strong>", // {0} is player name, {1} is player ID, {2} is purpose (reason)
     // Darkchat app
     "dark_you": "(You)",
-    "new_dark_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Settings app
     "playerinfo": "<strong>{0}</strong><br>ID: <strong>{1}</strong>", // {0} is player number, {1} is player ID
     // Notes app
@@ -97,6 +97,7 @@ Locales["en"] = {
     "online": "Online",
     "offline": "Offline",
     "invisible": "Invisible",
+    "copy_song": "Copy song link",
     "save_song": "Save to playlist",
     "remove_song": "Remove from playlist",
     "delete_playlist": "Delete playlist",
@@ -105,11 +106,15 @@ Locales["en"] = {
     "report": "Report",
     "delete": "Delete",
     "copy_message": "Copy Message",
+    "copy_link": "Copy Link",
     "manage_group": "Manage Group",
     "copy": "Copy",
     "reply": "Reply",
+    "viewcontact": "View Contact",
     "addcontact": "Add Contact",
     "call": "Call",
+    "block_number": "Block Number",
+    "unblock_number": "Unblock Number",
     "openchat": "Open Chat",
     "mutechat": "Mute Chat",
     "unmutechat": "Unmute Chat",
@@ -181,6 +186,7 @@ Locales["en"] = {
         "cannotcallyourself": "You cannot call your self!",
         "cannotcallnumber": "You cannot call this number!",
         "alreadyincall": "You're already in a call!",
+        "missed_call": "Missed call from <strong>{0}</strong>", // {0} is the caller number/name
         // Mail app
         "mailsettingssaved": "Settings have been saved!",
         "mailnametooshort": "Name is too short!",
@@ -214,6 +220,7 @@ Locales["en"] = {
         "cantopengroupsoff": "Cannot open groups with group messaging turned off!",
         "addedtogroup": "You have been added to a group called <strong>{0}</strong>!",
         "kickedperson": "<strong>{0}</strong> has been kicked from the group!", // {0} is the kicked person name/number
+        "new_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Dark chat app
         "airplanecantjoindarkgroups": "Cannot join groups with airplane mode on!",
         "airplanecantcreatedarkgroup": "Cannot create groups with airplane mode on!",
@@ -226,6 +233,7 @@ Locales["en"] = {
         "darkinvitecodenotfilled": "You need to fill in the invite code!",
         "kickedmember": "<strong>{0}</strong> has been kicked from the group!", // {0} is the kicked member name
         "bannedmember": "<strong>{0}</strong> has been banned from the group!", // {0} is the kicked member name
+        "new_dark_group_message": "<strong>{0}</strong> in <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Music app
         "failedtoplay": "Failed to play this song!",
         "noplaylists": "You don't have a single playlist!",
@@ -452,7 +460,7 @@ Locales["en"] = {
         "mail_newmail_recipients": "Recipients",
         "mail_newmail_subject": "Subject",
         "mail_newmail_text": "Text",
-        "mail_replymail_title": `Replying to <span style="font-family: PoppinsBolder;">{0}</span>`,
+        "mail_replymail_title": `Replying to <strong>{0}</strong>`,
         "reply_all": "Reply to all",
         // Bank
         "bank_title": "HIGHBANK",
@@ -571,7 +579,7 @@ Locales["en"] = {
         // Image selection
         "select": "Select",
         // Image preview
-        "save_to_gallery": "Save to gallery",
+        "save_to_gallery": "SAVE",
         // AirDrop
         "airdrop": "AirDrop",
         "airdrop_accept": "Accept",

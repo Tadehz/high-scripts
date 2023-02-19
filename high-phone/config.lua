@@ -1,22 +1,23 @@
 -- DO NOT TOUCH
+_G.Version = GetResourceMetadata(GetCurrentResourceName(), "version")
+
 Config = {}
 Config.Languages = {}
 
 -- Main config starts here!
 -- You can choose from the following languages: "en", "fr", "cz", "de"
 Config.Language = "en"
-Config.PhoneModel = "prop_npc_phone_02"
 
 Config.ItemRequired = true -- Does the player need a phone item in their inventory to be able to use it
 Config.DefaultItemNotRequired = "blue_phone" -- Index name from Config.PhoneItems below, default phone frame color/background if an item is not required. [Sadly can't give different color variations for people without items].
 Config.PhoneItems = { -- Phone item spawn name, can add multiple.
-    ["phone"] = {color = "#a3a3a3", defaultBackground = "blue", defaultLockbackground = "blue"}, -- Default backgrounds are the index names of backgrounds set in 'high_phone/html/js/config.js'
-    ["blue_phone"] = {color = "#215e7c", defaultBackground = "blue", defaultLockbackground = "blue"},
-    ["red_phone"] = {color = "#a50011", defaultBackground = "red", defaultLockbackground = "red"},
-    ["green_phone"] = {color = "#8baf8a", defaultBackground = "green", defaultLockbackground = "green"},
-    ["gold_phone"] = {color = "#f5ddc5", defaultBackground = "gold", defaultLockbackground = "gold"},
-    ["purple_phone"] = {color = "#b8afe6", defaultBackground = "purple", defaultLockbackground = "purple"},
-    ["black_phone"] = {color = "#171e27", defaultBackground = "purple", defaultLockbackground = "purple"},
+    ["phone"] = {color = "#a3a3a3", defaultBackground = "blue", defaultLockbackground = "blue", prop = "prop_npc_phone_02"}, -- Default backgrounds are the index names of backgrounds set in 'high_phone/html/js/config.js'
+    ["blue_phone"] = {color = "#215e7c", defaultBackground = "blue", defaultLockbackground = "blue", prop = "prop_npc_phone_02"},
+    ["red_phone"] = {color = "#a50011", defaultBackground = "red", defaultLockbackground = "red", prop = "prop_npc_phone_02"},
+    ["green_phone"] = {color = "#8baf8a", defaultBackground = "green", defaultLockbackground = "green", prop = "prop_npc_phone_02"},
+    ["gold_phone"] = {color = "#f5ddc5", defaultBackground = "gold", defaultLockbackground = "gold", prop = "prop_npc_phone_02"},
+    ["purple_phone"] = {color = "#b8afe6", defaultBackground = "purple", defaultLockbackground = "purple", prop = "prop_npc_phone_02"},
+    ["black_phone"] = {color = "#171e27", defaultBackground = "purple", defaultLockbackground = "purple", prop = "prop_npc_phone_02"},
     --["rainbow_phone"] = {color = "rainbow", defaultBackground = "gold", defaultLockbackground = "gold"} -- Why does this exist?
 } -- Colors can either be HEX or RGB codes.
 Config.AllowUsageInWater = false -- Set to true if you want to allow opening the phone in water. [The camera in water might be buggy]
@@ -31,6 +32,7 @@ Config.SettingsSaveType = 2 -- Put 1 for setting saving in the database, put 2 f
 end]]
 
 Config.CanUseDead = false -- Set to true if you want to allow the player to open the phone when he's dead.
+Config.CanUseRPDead = false -- Set to true if you want to allow the player to open the phone when he's RP dead (not actual entity death).
 Config.OpenKey = 199 -- Default key: P, you can find keys here: https://docs.fivem.net/docs/game-references/controls/
 Config.DisableControlAction = true -- Disable the other actions that OpenKey does? For example P opens pause menu, prevent that from happening or not?
 -- OR you can use key mapping (recommended, better for performance)
@@ -77,10 +79,9 @@ Config.TransferType = 1 -- Put 1 for player ID transactions, put 2 for IBAN tran
 Config.MoneyRequestCooldown = 5000 -- In miliseconds, 1000ms = 1 second
 Config.TransferCooldown = 5000 -- In miliseconds, 1000ms = 1 second
 
-Config.DarkGroupInviteCodeLength = 10 -- The length of a random invite code for a new dark chat group.
-Config.DarkMessageLimit = 50 -- How many messages to load for dark chats
+Config.CallsHistoryLimit = 100 -- How many calls can there be in the call history? Any more calls than that will remove the oldest calls.
 
-Config.MessageLimit = 50 -- How many messages to load for chats
+Config.DarkGroupInviteCodeLength = 10 -- The length of a random invite code for a new dark chat group.
 
 Config.TwitterResetTimer = 30 -- In seconds, how long you have to wait between sending reset codes.
 Config.ServerTweetLimit = 50 -- How many tweets to load from the database for the twitter app?

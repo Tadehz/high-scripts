@@ -12,10 +12,6 @@ Config.Languages["es"] = {
         ["transfercooldown"] = "No se pueden enviar transferencias tan rápido!",
         ["playernotonline"] = "El jugador con este ID no está conectado!",
         ["playernotonlineanymore"] = "El jugador se ha desconectado del servidor!",
-        -- Phone
-        ["userbusy"] = "El usuario está ocupado!",
-        ["usernotavailable"] = "El usuario no está disponible!",
-        ["noavailableunits"] = "No hay unidades disponibles para recoger la llamada!",
         -- Twitter/mail
         ["accountdoesntexist"] = "La dirección de correo electrónico no está registrada!",
         ["emailtaken"] = "El correo electrónico ya está ocupado!",
@@ -59,8 +55,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 47871,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     ["tweetreportwebhook"] = {
@@ -75,8 +71,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 47871,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     ["userreportwebhook"] = {
@@ -87,8 +83,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 47871,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     ["newmailwebhook"] = {
@@ -99,8 +95,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 15105570,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     ["newadwebhook"] = {
@@ -114,8 +110,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 15105570,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     ["newtransactionwebhook"] = {
@@ -127,8 +123,8 @@ Config.Languages["es"] = {
         },
         ["color"] = 2067276,
         ["footer"] = {
-            ["text"] = "highrider-phone v" .. GetResourceMetadata(GetCurrentResourceName(), "version"),
-            ["icon_url"] = "https://i.imgur.com/XMosDSD.png"
+            ["text"] = "highrider-phone v" .. _G.Version,
+            ["icon_url"] = "https://i.imgur.com/RrrU75E.png"
         }
     },
     -- Other

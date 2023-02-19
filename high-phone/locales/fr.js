@@ -54,11 +54,11 @@ Locales["fr"] = {
     "calling": "Appel en cours...",
     "connecting": "Connection...",
     "user_unavailable": "L'utilisateur n'est pas disponible !",
+    "no_units": "No Available Units",
     "user_busy": "L'utilisateur est occupé !",
     "callended": "Appel terminé",
     "cancelled": "Annulé",
     "privatenumber": "Numéro privé",
-    "missed_call": "Appel manqué de <strong>{0}</strong>", // {0} is the caller number/name
     // Message app
     "member_you": "(Vous)",
     "person": "Personne",
@@ -69,9 +69,10 @@ Locales["fr"] = {
     "attachment": "Pièce jointe #{0}", // {0} is the attachment ID
     "image": "Image #{0}", // {0} is the attachment (image) ID
     "attached_image": "(Image jointe)",
+    "not_delivered": "Not Delivered",
+    "message_failure": "Message Send Failure",
     "left_contacts": "Vous pouvez sélectionner {0} contacts supplémentaires", // {0} is the remaining contact count
     "max_contacts": "Vous ne pouvez sélectionner que {0} contacts au total !", // {0} is the allowed contact count
-    "new_group_message": "<strong>{0}</strong> dans <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Bank app
     "iban": "IBAN: {0}", // {0} is player bank account number
     "cardname": "HIGHBANK",
@@ -80,7 +81,6 @@ Locales["fr"] = {
     "requestdescription": "Demande de <strong>{0} [{1}]</strong><br>Raison: <strong>{2}</strong>", // {0} is player name, {1} is player ID, {2} is purpose (reason)
     // Darkchat app
     "dark_you": "(Vous)",
-    "new_dark_group_message": "<strong>{0}</strong> dans <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
     // Settings app
     "playerinfo": "Tél: <strong>{0}</strong><br>ID: <strong>{1}</strong>", // {0} is player number, {1} is player ID
     // Notes app
@@ -97,6 +97,7 @@ Locales["fr"] = {
     "online": "En ligne",
     "offline": "Hors ligne",
     "invisible": "Invisible",
+    "copy_song": "Copy song link",
     "save_song": "Sauvegarder dans la playlist",
     "remove_song": "Retirer de la playlist",
     "delete_playlist": "Supprimer la playlist",
@@ -105,11 +106,15 @@ Locales["fr"] = {
     "report": "Signaler",
     "delete": "Supprimer",
     "copy_message": "Copier le message",
+    "copy_link": "Copy Link",
     "manage_group": "Gérer le groupe",
     "copy": "Copier",
     "reply": "Répondre",
+    "viewcontact": "View Contact",
     "addcontact": "Ajouter un contact",
     "call": "Appeler",
+    "block_number": "Block Number",
+    "unblock_number": "Unblock Number",
     "openchat": "Ouvrir le chat",
     "mutechat": "Rendre muet le chat",
     "unmutechat": "Rétablir les notifications du chat",
@@ -181,6 +186,7 @@ Locales["fr"] = {
         "cannotcallyourself": "Vous ne pouvez pas vous appeler vous-même !",
         "cannotcallnumber": "Vous ne pouvez pas appeler ce numéro !",
         "alreadyincall": "Vous êtes déjà en appel !",
+        "missed_call": "Appel manqué de <strong>{0}</strong>", // {0} is the caller number/name
         // Mail app
         "mailsettingssaved": "Les paramètres ont été enregistrés !",
         "mailnametooshort": "Le nom est trop court !",
@@ -214,6 +220,7 @@ Locales["fr"] = {
         "cantopengroupsoff": "Impossible d'ouvrir les groupes avec les messages de groupe désactivés !",
         "addedtogroup": "Vous avez été ajouté à un groupe appelé <strong>{0}</strong> !",
         "kickedperson": "<strong>{0}</strong> a été exclu du groupe !", // {0} is the kicked person name/number
+        "new_group_message": "<strong>{0}</strong> dans <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Dark chat app
         "airplanecantjoindarkgroups": "Impossible de rejoindre un groupe en mode avion !",
         "airplanecantcreatedarkgroup": "Impossible de créer un groupe en mode avion !",
@@ -226,6 +233,7 @@ Locales["fr"] = {
         "darkinvitecodenotfilled": "Vous devez remplir le code d'invitation !",
         "kickedmember": "<strong>{0}</strong> a été exclu du groupe !", // {0} is the kicked member name
         "bannedmember": "<strong>{0}</strong> a été banni du groupe !", // {0} is the kicked member name
+        "new_dark_group_message": "<strong>{0}</strong> dans <strong>{1}</strong>:<br>{2}", // {0} is the sender name/number, {1} is the group name, {2} is the content
         // Music app
         "failedtoplay": "Échec de la lecture de la musique !",
         "noplaylists": "Vous n'avez aucune playlist !",
@@ -452,7 +460,7 @@ Locales["fr"] = {
         "mail_newmail_recipients": "Destinataires",
         "mail_newmail_subject": "Sujet",
         "mail_newmail_text": "Texte",
-        "mail_replymail_title": `En réponse à <span style="font-family: PoppinsBolder;">{0}</span>`,
+        "mail_replymail_title": `En réponse à <strong>{0}</strong>`,
         "reply_all": "Répondre à tous",
         // Bank
         "bank_title": "HIGHBANK",
