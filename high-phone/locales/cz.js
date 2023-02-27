@@ -42,6 +42,7 @@ Locales["cz"] = {
     "clearall": "Smazat vše",
     "on": "Zapnout",
     "off": "Vypnout",
+    "show": "SHOW",
     // Time
     "am": "AM",
     "pm": "PM",
@@ -143,6 +144,7 @@ Locales["cz"] = {
     "uploadingimage": "Nahrávání obrázku..",
     "failedupload": "Nepodařilo se nahrát!",
     "times": "x",
+    "postfx": "Portrait only works with PostFX set to Very High!",
     // Choose photos
     "totalphotos": "{0} fotek",
     // AirDrop
@@ -560,6 +562,7 @@ Locales["cz"] = {
         "group_messaging": "Skupinové zasílání zpráv",
         "background": "Pozadí",
         "lock_background": "Pozadí zamykací obrazovky",
+        "streamer_mode": "Streamer Mode",
         "ringtone": "Vyzvánění",
         "new_message": "Nová zpráva",
         "new_mail": "Nový Mail",

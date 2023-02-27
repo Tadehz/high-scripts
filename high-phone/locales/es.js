@@ -42,6 +42,7 @@ Locales["es"] = {
     "clearall": "Borrar todo",
     "on": "On",
     "off": "Off",
+    "show": "SHOW",
     // Time
     "am": "AM",
     "pm": "PM",
@@ -143,6 +144,7 @@ Locales["es"] = {
     "uploadingimage": "Cargando imagen..",
     "failedupload": "Subida fallida!",
     "times": "x",
+    "postfx": "Portrait only works with PostFX set to Very High!",
     // Choose photos
     "totalphotos": "{0} fotos",
     // AirDrop
@@ -562,6 +564,7 @@ Locales["es"] = {
         "group_messaging": "Mensajes de grupo",
         "background": "Fondo",
         "lock_background": "Fondo pantalla bloqueo",
+        "streamer_mode": "Streamer Mode",
         "ringtone": "Tono de llamada",
         "new_message": "Nuevo mensaje",
         "new_mail": "Nuevo correo",

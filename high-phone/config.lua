@@ -162,13 +162,13 @@ Config.AdsCategories = {
     -- Default category [invisible, as its the main category]
     ["default"] = { -- DO NOT CHANGE THIS CATEGORY JOB NAME, THIS IS THE DEFAULT/MAIN CATEGORY
         label = "Individual", -- Category label
-        job = {name = "unemployed", grade = 0}, -- People with this job and grade will be able to post ads to this category.
+        job = {}, -- People with this job and grade will be able to post ads to this category.
         color = "", -- RGBA or hex code
         info = { -- Detailed information of the category
             title = "All Advertisments",
             description = "All job advertisments and individual advertisments"
         },
-        allowPosting = false -- Allow posting ads in the default category for people without the job set in 'job' field above?
+        allowPosting = true -- Allow posting ads in the default category for people without the job set in 'job' field above?
     },
     -- Shown categories, ADD ALL NEW CATEGORIES BELOW THIS COMMENT ONLY!
     ["police"] = {
