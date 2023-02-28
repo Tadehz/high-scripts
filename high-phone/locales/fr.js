@@ -40,9 +40,9 @@ Locales["fr"] = {
     "remove": "SUPPRIMER",
     "clear": "Suppimer",
     "clearall": "Tout supprimer",
-    "on": "On",
-    "off": "Off",
-    "show": "SHOW",
+    "on": "Oui",
+    "off": "Non",
+    "show": "MONTRER",
     // Time
     "am": "AM",
     "pm": "PM",
@@ -55,7 +55,7 @@ Locales["fr"] = {
     "calling": "Appel en cours...",
     "connecting": "Connection...",
     "user_unavailable": "L'utilisateur n'est pas disponible !",
-    "no_units": "No Available Units",
+    "no_units": "Aucune unité n'est disponible !",
     "user_busy": "L'utilisateur est occupé !",
     "callended": "Appel terminé",
     "cancelled": "Annulé",
@@ -70,8 +70,8 @@ Locales["fr"] = {
     "attachment": "Pièce jointe #{0}", // {0} is the attachment ID
     "image": "Image #{0}", // {0} is the attachment (image) ID
     "attached_image": "(Image jointe)",
-    "not_delivered": "Not Delivered",
-    "message_failure": "Message Send Failure",
+    "not_delivered": "Non distribué",
+    "message_failure": "Échec de l'envoi du message",
     "left_contacts": "Vous pouvez sélectionner {0} contacts supplémentaires", // {0} is the remaining contact count
     "max_contacts": "Vous ne pouvez sélectionner que {0} contacts au total !", // {0} is the allowed contact count
     // Bank app
@@ -98,7 +98,7 @@ Locales["fr"] = {
     "online": "En ligne",
     "offline": "Hors ligne",
     "invisible": "Invisible",
-    "copy_song": "Copy song link",
+    "copy_song": "Copier le lien",
     "save_song": "Sauvegarder dans la playlist",
     "remove_song": "Retirer de la playlist",
     "delete_playlist": "Supprimer la playlist",
@@ -107,15 +107,15 @@ Locales["fr"] = {
     "report": "Signaler",
     "delete": "Supprimer",
     "copy_message": "Copier le message",
-    "copy_link": "Copy Link",
+    "copy_link": "Copier le lien",
     "manage_group": "Gérer le groupe",
     "copy": "Copier",
     "reply": "Répondre",
-    "viewcontact": "View Contact",
+    "viewcontact": "Voir le contact",
     "addcontact": "Ajouter un contact",
     "call": "Appeler",
-    "block_number": "Block Number",
-    "unblock_number": "Unblock Number",
+    "block_number": "Bloquer ce correspondant",
+    "unblock_number": "Débloquer ce correspondant",
     "openchat": "Ouvrir le chat",
     "mutechat": "Rendre muet le chat",
     "unmutechat": "Rétablir les notifications du chat",
@@ -144,7 +144,7 @@ Locales["fr"] = {
     "uploadingimage": "Uploading image..",
     "failedupload": "Échec de l'upload !",
     "times": "x",
-    "postfx": "Portrait only works with PostFX set to Very High!",
+    "postfx": "Le mode portrait ne fonctionne qu'avec PostFX réglé sur Très Élevé !",
     // Choose photos
     "totalphotos": "{0} photos",
     // AirDrop
@@ -260,7 +260,7 @@ Locales["fr"] = {
         "resettimer": "Vous avez déjà envoyé un code de réinitialisation à ce mail ! Veuillez attendre {0} secondes avant d'envoyer un nouveau code !", // {0} is the left seconds to wait.
         "passwordnotmatching": "Les mots de passe ne correspondent pas !",
         "resetsuccess": "Vous avez réinitialisé le mot de passe de votre compte ! Vous pouvez maintenant vous connecter.",
-        "twitteruserbanned": "{0} has been banned from Twitter until {1}", // {0} is the user nickname, {1} is the date
+        "twitteruserbanned": "{0} a été banni de Twitter jusqu'au {1}", // {0} is the user nickname, {1} is the date
         // Bank app
         "ibancopied": "Votre numéro IBAN a été copié !",
         "idnotfilled": "Vous devez remplir l'ID du joueur !",
@@ -562,7 +562,7 @@ Locales["fr"] = {
         "group_messaging": "Message de groupe",
         "background": "Arrière-plan",
         "lock_background": "Arrière-plan de verrouillage",
-        "streamer_mode": "Streamer Mode",
+        "streamer_mode": "Mode streamer",
         "ringtone": "Sonnerie",
         "new_message": "Nouveau message",
         "new_mail": "Nouveau mail",
